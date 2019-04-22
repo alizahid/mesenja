@@ -1,0 +1,74 @@
+@import '../../assets/variables';
+
+.header {
+  background: $color-primary;
+  color: $color-background;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      margin-top: auto;
+    }
+
+    a {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 1.5em;
+      height: $nav-bar-size;
+      width: $nav-bar-size;
+
+      &.active {
+        background-color: lighten($color-primary, 10%);
+      }
+
+      &.unread {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        &:before {
+          background: $color-notification;
+          border-radius: 100%;
+          content: '';
+          height: $layout-padding * 2 / 3;
+          margin: (-$layout-padding) (-$layout-padding) 0 0;
+          width: $layout-padding * 2 / 3;
+        }
+      }
+
+      &.home {
+        background-image: url('../../assets/nav_home.svg');
+
+        &.active {
+          background-color: $color-accent;
+        }
+      }
+
+      &.posts {
+        background-image: url('../../assets/nav_posts.svg');
+      }
+
+      &.members {
+        background-image: url('../../assets/nav_members.svg');
+      }
+
+      &.notifications {
+        background-image: url('../../assets/nav_notifications.svg');
+      }
+
+      &.profile {
+        background-image: url('../../assets/nav_profile.svg');
+      }
+
+      &.logout {
+        background-image: url('../../assets/nav_logout.svg');
+      }
+    }
+  }
+}

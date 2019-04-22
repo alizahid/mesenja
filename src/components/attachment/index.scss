@@ -1,0 +1,46 @@
+@import '../../assets/variables';
+
+.attachment {
+  border-radius: $border-radius * 2;
+  margin: $layout-padding 0;
+  overflow: hidden;
+
+  &.image {
+    position: relative;
+
+    &:hover {
+      figcaption {
+        opacity: 1;
+      }
+    }
+
+    img {
+      border-radius: $border-radius * 2;
+    }
+
+    figcaption {
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+      bottom: 0;
+      color: $color-background;
+      font-size: $text-size-small;
+      left: 0;
+      opacity: 0;
+      padding: $layout-padding;
+      position: absolute;
+      right: 0;
+      transition: $transition;
+      width: 100%;
+    }
+  }
+
+  &.link {
+    background: $color-primary;
+    color: $color-background;
+    display: block;
+    padding: $layout-padding;
+
+    p {
+      margin: 0;
+    }
+  }
+}

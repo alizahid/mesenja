@@ -1,0 +1,31 @@
+@import '../../assets/variables';
+
+section.posts {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 24em;
+  overflow: hidden;
+
+  &:not(:first-child) {
+    h2 {
+      border-left: 1px solid darken($color-accent, 5%);
+    }
+
+    section {
+      border-left: 1px solid darken($color-background, 15%);
+    }
+  }
+
+  h2 {
+    background: $color-accent;
+    color: $color-background;
+    font-size: $text-size-regular;
+    padding: $layout-padding;
+  }
+
+  section {
+    flex: 1;
+    overflow: auto;
+  }
+}
