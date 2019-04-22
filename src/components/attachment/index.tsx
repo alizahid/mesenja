@@ -15,14 +15,19 @@ const Attachment: FunctionComponent<Props> = ({
     case 'image':
       return (
         <figure className="attachment image">
-          <img src={uri} />
+          <img src={uri} alt={caption} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       )
 
     case 'link':
       return (
-        <a className="attachment link" href={uri} target="_blank">
+        <a
+          className="attachment link"
+          href={uri}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {caption && <h4>{caption}</h4>}
           <p>{uri}</p>
         </a>
