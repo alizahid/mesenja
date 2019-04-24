@@ -4,7 +4,8 @@ section.posts {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-width: 24em;
+  max-width: $column-max-width;
+  min-width: $column-min-width;
   overflow: hidden;
 
   &:not(:first-child) {
@@ -26,5 +27,15 @@ section.posts {
   section {
     flex: 1;
     overflow: auto;
+  }
+}
+
+$min-width: $column-max-width * 3 + $nav-bar-size;
+
+@media only screen and (min-width: $min-width) {
+  section.posts {
+    &:last-child {
+      border-right: 1px solid darken($color-background, 15%);
+    }
   }
 }
