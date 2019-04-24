@@ -26,12 +26,9 @@ const Posts: FunctionComponent = () => {
 
   return (
     <main className="posts">
-      <Header />
-      <div>
-        <Column posts={all} title="Everything else" />
-        <Column posts={tagged} title="Tagged" />
-        <Column posts={mine} title="Mine" />
-      </div>
+      <Column posts={all} title="Everything else" />
+      <Column posts={tagged} title="Tagged" />
+      <Column posts={mine} title="Mine" />
     </main>
   )
 }

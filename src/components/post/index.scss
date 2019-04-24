@@ -25,11 +25,13 @@ article.post {
   }
 
   .body {
+    font-size: $text-size-small;
+
     h1,
     h2,
     h3,
     h4 {
-      font-size: $text-size-regular;
+      font-size: inherit;
       line-height: $text-line-height;
     }
   }

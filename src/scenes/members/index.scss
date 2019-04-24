@@ -12,7 +12,6 @@ main.members {
     margin: $layout-margin 0;
 
     a {
-      flex: 1;
       margin: 0 $layout-padding;
 
       p {
@@ -26,6 +25,7 @@ main.members {
 
     span {
       color: $color-text-light;
+      margin-left: auto;
     }
   }
 }
