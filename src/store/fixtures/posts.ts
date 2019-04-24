@@ -2,6 +2,12 @@ import moment from 'moment'
 
 import { Post } from '../models/posts'
 
+import teams from './teams'
+import users from './users'
+
+const [mesenja] = teams
+const [ali, janet, danyal, sara] = users
+
 const fixtures: Post[] = [
   {
     body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut massa felis.
@@ -14,16 +20,10 @@ Nullam euismod nulla sem, at gravida mauris malesuada ut. Nam eu aliquam dolor. 
 
 In pharetra nisi turpis, scelerisque tincidunt ex imperdiet eget.`,
     created: moment().subtract(1, 'month'),
-    tagged: [
-      {
-        id: '2',
-        name: 'Janet Paul'
-      }
-    ],
-    user: {
-      id: '1',
-      name: 'Ali Zahid'
-    }
+    liked: [ali, janet, danyal, sara],
+    tagged: [janet],
+    team: mesenja,
+    user: ali
   },
   {
     body: `Sed auctor tortor in ipsum finibus, in gravida turpis aliquet. Integer id odio turpis. Duis venenatis lectus ut mollis blandit.
@@ -32,16 +32,9 @@ Sed vestibulum pharetra elementum. Pellentesque at sollicitudin lectus. Nulla fi
 
 Vestibulum blandit diam sollicitudin, commodo dui non, accumsan sapien. Proin viverra sagittis convallis. Fusce id risus convallis, placerat augue at, laoreet felis.`,
     created: moment().subtract(24, 'minutes'),
-    tagged: [
-      {
-        id: '1',
-        name: 'Ali Zahid'
-      }
-    ],
-    user: {
-      id: '2',
-      name: 'Janet Paul'
-    }
+    tagged: [ali],
+    team: mesenja,
+    user: janet
   },
   {
     attachments: [
@@ -63,10 +56,9 @@ Pellentesque posuere ullamcorper enim at suscipit. Maecenas mi nisl, tincidunt e
 
 Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. Phasellus nec consequat augue. Praesent sit amet tortor vel augue aliquet mattis. Quisque fermentum metus lectus, id commodo sapien mattis porta.`,
     created: moment().subtract(45, 'minutes'),
-    user: {
-      id: '3',
-      name: 'Danyal Zahid'
-    }
+    liked: [ali, sara],
+    team: mesenja,
+    user: danyal
   },
   {
     body: `Mauris quis bibendum elit. Nulla facilisi. Mauris auctor justo et lacus dictum mattis.
@@ -75,20 +67,10 @@ Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. 
 
 Nam suscipit non tellus sit amet rutrum. Phasellus et sollicitudin mauris, a dictum nunc. Pellentesque eu lectus luctus, porttitor nisl eu, scelerisque lorem.`,
     created: moment().subtract(2, 'hours'),
-    tagged: [
-      {
-        id: '1',
-        name: 'Ali Zahid'
-      },
-      {
-        id: '2',
-        name: 'Janet Paul'
-      }
-    ],
-    user: {
-      id: '4',
-      name: 'Sara Zahid'
-    }
+    liked: [ali, janet, sara],
+    tagged: [ali, janet],
+    team: mesenja,
+    user: sara
   },
   {
     attachments: [
@@ -106,10 +88,9 @@ Nulla cursus vitae risus et dictum. Sed vel nulla risus. Sed nec iaculis risus, 
 
 Nullam tempor magna ex, vel suscipit tellus rhoncus sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.`,
     created: moment().subtract(4, 'hours'),
-    user: {
-      id: '1',
-      name: 'Ali Zahid'
-    }
+    liked: [janet, danyal, sara],
+    team: mesenja,
+    user: ali
   }
 ]
 

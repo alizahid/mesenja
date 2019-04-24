@@ -1,23 +1,25 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
+import { Link } from 'react-router-dom'
+
+import { Avatar } from '../../components'
+import { useStore } from '../../store'
 
 import './index.scss'
 
-export default () => {
+const Home: FunctionComponent = () => {
+  const teams = useStore(state => state.teams.teams)
+
   return (
     <main className="home">
-      <header>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Teams</h1>
+      {teams.map((team, index) => (
+        <article key={index}>
+          <Avatar data={team} />
+          <Link to="/posts">{team.name}</Link>
+        </article>
+      ))}
     </main>
   )
 }
+
+export default Home

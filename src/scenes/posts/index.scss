@@ -1,3 +1,23 @@
+@import '../../assets/variables';
+
 main.posts {
   display: flex;
+  flex-direction: column;
+
+  > header {
+    background: $color-accent;
+    overflow: hidden;
+
+    h1 {
+      color: $color-background;
+      font-size: $text-size-regular;
+      margin: $layout-padding;
+    }
+  }
+
+  > div {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
 }

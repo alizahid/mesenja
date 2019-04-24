@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { random, sampleSize } from 'lodash'
-import Identicon from 'identicon.js'
 import Markdown from 'react-markdown'
 import moment from 'moment'
-import sha from 'sha.js'
 
 import { Post as PostI } from '../../store/models/posts'
 
@@ -18,17 +16,9 @@ import {
 } from '../../assets'
 
 import Attachment from '../attachment'
+import Avatar from '../avatar'
 
 import './index.scss'
-
-const avatar = (id: string) => {
-  const hash = sha('sha256')
-    .update(id)
-    .digest('hex')
-  const image = new Identicon(hash).toString()
-
-  return `data:image/png;base64,${image}`
-}
 
 const reactions = () => {
   const all = [
@@ -74,15 +64,15 @@ const Post: FunctionComponent<Props> = ({
   return (
     <article className="post">
       <Link className="user" to="/members">
-        <img src={avatar(user.id)} alt={user.name} />
+        <Avatar data={user} />
         <h4>{user.name}</h4>
         <span>{moment(created).fromNow(true)}</span>
       </Link>
       <Markdown className="body" source={body} />
       {attachments && (
         <div className="attachments">
-          {attachments.map(attachment => (
-            <Attachment attachment={attachment} />
+          {attachments.map((attachment, index) => (
+            <Attachment key={index} attachment={attachment} />
           ))}
         </div>
       )}

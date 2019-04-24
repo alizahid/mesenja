@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 
-import { Posts } from '../../components'
+// import { get } from 'lodash'
+
+import { Header, Column } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
 
-const me = '1'
-
-export default () => {
+const Posts: FunctionComponent = () => {
+  const me = '1'
+  // const { team } = useStore(state => state.nav)
   const posts = useStore(state => state.posts.posts)
+  // .filter(
+  //   ({ team: { id } }) => id === get(team, 'id')
+  // )
 
   const all = posts.filter(
     ({ tagged = [], user: { id } }) =>
@@ -21,9 +26,14 @@ export default () => {
 
   return (
     <main className="posts">
-      <Posts posts={all} title="Everything else" />
-      <Posts posts={tagged} title="Tagged" />
-      <Posts posts={mine} title="Mine" />
+      <Header />
+      <div>
+        <Column posts={all} title="Everything else" />
+        <Column posts={tagged} title="Tagged" />
+        <Column posts={mine} title="Mine" />
+      </div>
     </main>
   )
 }
+
+export default Posts

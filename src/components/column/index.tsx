@@ -31,7 +31,7 @@ moment.updateLocale('en', {
   }
 })
 
-const Posts: FunctionComponent<Props> = ({ posts, title }) => {
+const Column: FunctionComponent<Props> = ({ posts, title }) => {
   return (
     <section className="posts">
       <h2>{title}</h2>
@@ -44,4 +44,4 @@ const Posts: FunctionComponent<Props> = ({ posts, title }) => {
   )
 }
 
-export default Posts
+export default Column

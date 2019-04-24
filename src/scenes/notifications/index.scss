@@ -1,0 +1,38 @@
+@import '../../assets/variables';
+
+main.notifications {
+  padding: $layout-margin;
+
+  h1 {
+  }
+
+  article {
+    align-items: center;
+    display: flex;
+    margin: $layout-margin 0;
+
+    &.read {
+      opacity: 0.5;
+    }
+
+    p {
+      margin: 0 $layout-padding;
+
+      span {
+        color: inherit;
+
+        &:before {
+          content: '\a0';
+        }
+
+        &:after {
+          content: '\a0';
+        }
+      }
+    }
+
+    span {
+      color: $color-text-light;
+    }
+  }
+}

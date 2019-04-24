@@ -1,6 +1,6 @@
 @import '../../assets/variables';
 
-main.home {
+main.feed {
   padding: $layout-margin;
 
   h1 {
@@ -11,8 +11,12 @@ main.home {
     display: flex;
     margin: $layout-margin 0;
 
-    a {
-      margin-left: $layout-padding;
+    p {
+      margin: 0 $layout-padding;
+    }
+
+    span {
+      color: $color-text-light;
     }
   }
 }

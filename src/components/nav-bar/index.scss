@@ -44,10 +44,6 @@
 
       &.home {
         background-image: url('../../assets/nav_home.svg');
-
-        &.active {
-          background-color: $color-accent;
-        }
       }
 
       &.posts {
