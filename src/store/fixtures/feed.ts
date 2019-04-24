@@ -10,31 +10,31 @@ const [ali, janet, danyal, sara] = users
 
 const fixtures: Feed[] = [
   {
-    created: moment().subtract(2, 'hour'),
+    created: moment().subtract(2, 'hours'),
     team: mesenja,
     type: 'user_joined',
     user: sara
   },
   {
-    created: moment().subtract(3, 'hour'),
+    created: moment().subtract(3, 'hours'),
     team: mesenja,
     type: 'user_joined',
     user: danyal
   },
   {
-    created: moment().subtract(3, 'hour'),
+    created: moment().subtract(3, 'hours'),
     team: mesenja,
     type: 'user_joined',
     user: janet
   },
   {
-    created: moment().subtract(4, 'hour'),
+    created: moment().subtract(4, 'hours'),
     team: mesenja,
     type: 'user_joined',
     user: ali
   },
   {
-    created: moment().subtract(4, 'hour'),
+    created: moment().subtract(4, 'hours'),
     team: mesenja,
     type: 'team_created',
     user: ali
