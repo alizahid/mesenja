@@ -1,6 +1,1 @@
-export { default as reaction_cool } from './reaction_cool.svg'
-export { default as reaction_laugh } from './reaction_laugh.svg'
-export { default as reaction_love } from './reaction_love.svg'
-export { default as reaction_sad } from './reaction_sad.svg'
-export { default as reaction_thumb_up } from './reaction_thumb_up.svg'
-export { default as reaction_thumbs_down } from './reaction_thumbs_down.svg'
+export { default as like } from './like.svg'
