@@ -25,47 +25,50 @@ article.post {
   }
 
   .body {
-    font-size: $text-size-small;
-
     h1,
     h2,
     h3,
     h4 {
-      font-size: inherit;
+      font-size: $text-size-regular;
       line-height: $text-line-height;
     }
   }
 
-  .reactions {
+  footer {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: -$layout-padding;
+    margin: 0 (-$layout-padding) (-$layout-padding);
 
     a {
       align-items: center;
-      color: $color-text-light;
-      cursor: pointer;
+      color: $color-text;
       display: flex;
-      margin: $layout-padding $layout-padding 0 0;
       opacity: 0.5;
+      padding: $layout-padding;
 
       &:hover {
         opacity: 1;
-        transform: scale(1.2);
       }
 
-      &:first-child,
-      &:nth-child(3) {
-        color: $color-text;
-        opacity: 1;
+      &.likes {
+        &:before {
+          background-image: url('../../assets/likes.svg');
+        }
       }
 
-      img {
-        height: $avatar-size / 2;
+      &.comments {
+        &:before {
+          background-image: url('../../assets/comments.svg');
+        }
       }
 
-      span {
-        margin-left: $layout-padding / 3;
+      &:before {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: $layout-padding;
+        content: '';
+        height: $layout-padding;
+        margin-right: $layout-padding / 2;
+        width: $layout-padding;
       }
     }
   }

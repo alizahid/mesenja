@@ -37,7 +37,7 @@
     background: $color-accent;
     color: $color-background;
     display: block;
-    padding: $layout-padding;
+    padding: $layout-padding * 3/4;
 
     p {
       font-size: $text-size-small;

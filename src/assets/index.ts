@@ -1,1 +1,2 @@
-export { default as like } from './like.svg'
+export { default as comments } from './comments.svg'
+export { default as likes } from './likes.svg'

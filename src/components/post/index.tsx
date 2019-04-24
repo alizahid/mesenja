@@ -5,8 +5,6 @@ import moment from 'moment'
 
 import { Post as PostI } from '../../store/models/posts'
 
-import { like } from '../../assets'
-
 import Attachment from '../attachment'
 import Avatar from '../avatar'
 
@@ -34,10 +32,12 @@ const Post: FunctionComponent<Props> = ({
           ))}
         </div>
       )}
-      <footer className="reactions">
-        <a href="/posts">
-          <img src={like} alt="" />
-          <span>{liked ? liked.length : 0}</span>
+      <footer>
+        <a className="likes" href="/posts">
+          {liked ? liked.length : 0}
+        </a>
+        <a className="comments" href="/posts">
+          5
         </a>
       </footer>
     </article>
