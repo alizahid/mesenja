@@ -47,7 +47,9 @@ const Feed: FunctionComponent = () => {
       <h1>Feed</h1>
       {feed.map((item, index) => (
         <article key={index}>
-          <Avatar data={item.user} />
+          <Link to="/members">
+            <Avatar data={item.user} />
+          </Link>
           <FeedBody item={item} />
           <span>{moment(item.created).fromNow(true)}</span>
         </article>

@@ -12,7 +12,12 @@ main.members {
     margin: $layout-margin 0;
 
     a {
-      margin: 0 $layout-padding;
+      align-items: center;
+      display: flex;
+
+      img {
+        margin-right: $layout-padding;
+      }
 
       p {
         margin: 0;

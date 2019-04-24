@@ -18,10 +18,12 @@ const Members: FunctionComponent = () => {
       <h1>Members</h1>
       {users.map((user, index) => (
         <article key={index}>
-          <Avatar data={user} />
           <Link to="/members">
-            <p>{user.name}</p>
-            <p>{user.email}</p>
+            <Avatar data={user} />
+            <div>
+              <p>{user.name}</p>
+              <p>{user.email}</p>
+            </div>
           </Link>
           <span>{user.role}</span>
         </article>

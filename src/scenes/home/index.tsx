@@ -14,8 +14,10 @@ const Home: FunctionComponent = () => {
       <h1>Teams</h1>
       {teams.map((team, index) => (
         <article key={index}>
-          <Avatar data={team} />
-          <Link to="/posts">{team.name}</Link>
+          <Link to="/posts">
+            <Avatar data={team} />
+            {team.name}
+          </Link>
         </article>
       ))}
     </main>

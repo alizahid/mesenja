@@ -19,11 +19,13 @@ const Post: FunctionComponent<Props> = ({
 }) => {
   return (
     <article className="post">
-      <Link className="user" to="/members">
-        <Avatar data={user} />
-        <h4>{user.name}</h4>
+      <header>
+        <Link className="user" to="/members">
+          <Avatar data={user} />
+          <h4>{user.name}</h4>
+        </Link>
         <span>{moment(created).fromNow(true)}</span>
-      </Link>
+      </header>
       <Markdown className="body" source={body} />
       {attachments && (
         <div className="attachments">

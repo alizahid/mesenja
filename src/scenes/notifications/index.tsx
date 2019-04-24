@@ -44,7 +44,9 @@ const Notifications: FunctionComponent = () => {
       <h1>Notifications</h1>
       {notifications.map((notification, index) => (
         <article className={notification.read ? 'read' : 'unread'} key={index}>
-          <Avatar data={notification.user} />
+          <Link to="/members">
+            <Avatar data={notification.user} />
+          </Link>
           <NotificationBody notification={notification} />
           <span>{moment(notification.created).fromNow(true)}</span>
         </article>

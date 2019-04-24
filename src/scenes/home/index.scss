@@ -7,12 +7,15 @@ main.home {
   }
 
   article {
-    align-items: center;
-    display: flex;
     margin: $layout-margin 0;
 
     a {
-      margin-left: $layout-padding;
+      align-items: center;
+      display: flex;
+
+      img {
+        margin-right: $layout-padding;
+      }
     }
   }
 }
