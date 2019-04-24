@@ -6,10 +6,13 @@ import { StoreProvider } from 'easy-peasy'
 import { unregister } from './serviceWorker'
 
 import { NavBar } from './components'
+import { moment } from './lib'
 import { Feed, Home, Members, Notifications, Posts } from './scenes'
 import { store } from './store'
 
 import './index.scss'
+
+moment.setup()
 
 ReactDOM.render(
   <StoreProvider store={store}>

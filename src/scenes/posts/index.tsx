@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 
 // import { get } from 'lodash'
 
-import { Header, Column } from '../../components'
+import { Column } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
