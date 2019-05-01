@@ -11,7 +11,11 @@ const Modal: FunctionComponent<Props> = ({ children, onClick }) => {
   const modal = document.createElement('div')
 
   modal.id = 'modal'
-  modal.onclick = onClick
+  modal.onclick = event => {
+    if (event.target === modal && onClick) {
+      onClick()
+    }
+  }
 
   useEffect(() => {
     document.body.appendChild(modal)
