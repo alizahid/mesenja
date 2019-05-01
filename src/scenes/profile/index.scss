@@ -36,7 +36,7 @@ main.profile {
       color: $color-background;
       font-size: $text-size-regular;
       margin: $layout-padding;
-      padding: $layout-padding;
+      padding: $layout-padding * 3/4;
     }
   }
 }
