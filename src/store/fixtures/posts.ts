@@ -10,6 +10,13 @@ const [ali, janet, danyal, sara] = users
 
 const fixtures: Post[] = [
   {
+    attachments: [
+      {
+        caption: 'Ali Zahid',
+        type: 'link',
+        uri: 'https://designplox.com'
+      }
+    ],
     body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut massa felis.
 
 Pellentesque tempor, nisl at consectetur finibus, elit nulla rutrum nibh, et iaculis felis dolor a enim. Sed lacinia dapibus vestibulum.
@@ -75,13 +82,6 @@ Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. 
     user: sara
   },
   {
-    attachments: [
-      {
-        caption: 'Ali Zahid',
-        type: 'link',
-        uri: 'https://designplox.com'
-      }
-    ],
     body: `Fusce pretium metus id nisi placerat malesuada. Proin accumsan ullamcorper sem. Mauris ultricies mauris sit amet ex dictum, sed egestas urna laoreet.
 
 Ut tristique lorem dui, non posuere est lacinia vestibulum. Nunc pellentesque ligula sed vehicula commodo. Proin commodo blandit tortor, id gravida dui facilisis quis.
