@@ -12,6 +12,10 @@
     height: $nav-bar-size;
     margin-top: $layout-margin;
     width: $nav-bar-size;
+
+    &:hover {
+      animation: switcher 2s linear infinite;
+    }
   }
 
   div {
@@ -28,7 +32,7 @@
     border-radius: $border-radius;
     left: $nav-bar-size + $layout-padding;
     position: fixed;
-    top: $layout-padding;
+    top: $layout-margin;
 
     &:before {
       border: solid transparent;
@@ -39,7 +43,7 @@
       pointer-events: none;
       position: absolute;
       right: 100%;
-      top: $layout-margin;
+      top: $layout-padding;
       width: 0;
     }
 
@@ -50,11 +54,13 @@
       padding: $layout-padding;
 
       &:first-child {
-        border-radius: $border-radius $border-radius 0 0;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
       }
 
       &:last-child {
-        border-radius: 0 0 $border-radius $border-radius;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
       }
 
       &:hover {
@@ -70,5 +76,15 @@
         margin-right: $layout-padding;
       }
     }
+  }
+}
+
+@keyframes switcher {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
