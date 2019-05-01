@@ -10,7 +10,7 @@ import { useStore } from '../../store'
 import './index.scss'
 
 const buildPath = (team: Team, current: undefined | Team, path: string) => {
-  if (current) {
+  if (current && path.length > 1) {
     return path.replace(current.id, team.id)
   }
 
