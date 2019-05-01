@@ -9,6 +9,9 @@ import users from './users'
 const [mesenja] = teams
 const [ali, janet, danyal, sara] = users
 
+const id_ali = ali.id
+const id_janet = janet.id
+
 const fixtures: Post[] = [
   {
     attachments: [
@@ -43,7 +46,7 @@ Sed vestibulum pharetra elementum. Pellentesque at sollicitudin lectus. Nulla fi
 
 Vestibulum blandit diam sollicitudin, commodo dui non, accumsan sapien. Proin viverra sagittis convallis. Fusce id risus convallis, placerat augue at, laoreet felis.
 
-{user:1}`,
+{user:${id_ali}}`,
     created: moment().subtract(24, 'minutes'),
     id: shortid.generate(),
     liked: [],
@@ -83,9 +86,9 @@ Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. 
     attachments: [],
     body: `Mauris quis bibendum elit. Nulla facilisi. Mauris auctor justo et lacus dictum mattis.
 
-{user:1} Curabitur risus magna, ullamcorper in neque quis, aliquam sodales nisl.
+{user:${id_ali}} Curabitur risus magna, ullamcorper in neque quis, aliquam sodales nisl.
 
-{user:4} Nam suscipit non tellus sit amet rutrum. Phasellus et sollicitudin mauris, a dictum nunc. Pellentesque eu lectus luctus, porttitor nisl eu, scelerisque lorem.`,
+{user:${id_janet}} Nam suscipit non tellus sit amet rutrum. Phasellus et sollicitudin mauris, a dictum nunc. Pellentesque eu lectus luctus, porttitor nisl eu, scelerisque lorem.`,
     created: moment().subtract(2, 'hours'),
     id: shortid.generate(),
     liked: [ali, janet, sara],

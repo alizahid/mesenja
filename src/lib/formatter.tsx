@@ -14,7 +14,7 @@ export default (body: string) => {
           target: '_blank'
         }}
       >
-        {replace(text, /{user:([0-9]+)}/g, (id, index) => {
+        {replace(text, /{user:([0-9A-Za-z_-]+)}/g, (id, index) => {
           const user = users.find(user => user.id === id)
 
           if (user) {
