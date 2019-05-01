@@ -34,7 +34,11 @@ const TeamSwitcher: FunctionComponent = () => {
         <div onClick={() => setVisible(false)}>
           <section>
             {teams.map((team, index) => (
-              <NavLink key={index} to={buildPath(team, current, pathname)}>
+              <NavLink
+                key={index}
+                className={team === current ? 'current' : ''}
+                to={buildPath(team, current, pathname)}
+              >
                 <Avatar data={team} />
                 {team.name}
               </NavLink>
