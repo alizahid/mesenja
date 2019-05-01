@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import moment from 'moment'
+import { random } from 'lodash'
 
 import { Post as PostI } from '../../store/models/posts'
 
@@ -40,7 +41,7 @@ const Post: FunctionComponent<Props> = ({
           {liked ? liked.length : 0}
         </a>
         <a className="comments" href="/posts">
-          5
+          {random(0, 10)}
         </a>
       </footer>
     </article>
