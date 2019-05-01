@@ -18,6 +18,10 @@ main.notifications {
     p {
       margin: 0 $layout-padding;
 
+      .user {
+        float: left;
+      }
+
       span {
         color: inherit;
 

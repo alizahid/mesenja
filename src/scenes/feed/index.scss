@@ -13,6 +13,10 @@ main.feed {
 
     p {
       margin: 0 $layout-padding;
+
+      .user {
+        float: left;
+      }
     }
 
     span {

@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import { Notification as NotificationI } from '../../store/models/notifications'
 
-import { Avatar } from '../../components'
+import { Avatar, UserPreview } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
@@ -21,7 +21,7 @@ const NotificationBody: FunctionComponent<Props> = ({
     case 'tag':
       return (
         <p>
-          <Link to="/members">{user.name}</Link>
+          <UserPreview user={user}>{user.name}</UserPreview>
           <span>tagged you in a</span>
           <Link to="/posts">post</Link>.
         </p>
@@ -43,9 +43,9 @@ const Notifications: FunctionComponent = () => {
       <h1>Notifications</h1>
       {notifications.map((notification, index) => (
         <article className={notification.read ? 'read' : 'unread'} key={index}>
-          <Link to="/members">
+          <UserPreview user={notification.user}>
             <Avatar data={notification.user} />
-          </Link>
+          </UserPreview>
           <NotificationBody notification={notification} />
           <span>{moment(notification.created).fromNow(true)}</span>
         </article>

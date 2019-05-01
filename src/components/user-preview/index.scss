@@ -1,0 +1,33 @@
+@import '../../assets/variables';
+
+.user {
+  color: $color-accent;
+  cursor: pointer;
+}
+
+.user-preview {
+  background: $color-background;
+  border-radius: $border-radius;
+  padding: $layout-padding;
+  width: $column-min-width;
+
+  header {
+    align-items: center;
+    display: flex;
+
+    img {
+      margin-right: $layout-padding;
+    }
+
+    div {
+      h1 {
+        font-size: $text-size-regular;
+      }
+
+      p {
+        font-size: $text-size-small;
+        margin: ($layout-padding / 2) 0 0;
+      }
+    }
+  }
+}

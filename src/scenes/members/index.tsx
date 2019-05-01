@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
 
 import { Team } from '../../store/models/teams'
 import { User } from '../../store/models/users'
 
-import { Avatar } from '../../components'
+import { Avatar, UserPreview } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
@@ -28,13 +27,13 @@ const Members: FunctionComponent = () => {
       <h1>Members</h1>
       {users.map((user, index) => (
         <article key={index}>
-          <Link to="/members">
+          <UserPreview user={user}>
             <Avatar data={user} />
             <div>
               <p>{user.name}</p>
               <p>{user.email}</p>
             </div>
-          </Link>
+          </UserPreview>
           <span>{getRole(user, team)}</span>
         </article>
       ))}

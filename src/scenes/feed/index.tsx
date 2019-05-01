@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
 import { get } from 'lodash'
 import moment from 'moment'
 
 import { Feed as FeedI } from '../../store/models/feed'
 
-import { Avatar } from '../../components'
+import { Avatar, UserPreview } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
@@ -19,14 +18,16 @@ const FeedBody: FunctionComponent<Props> = ({ item: { team, type, user } }) => {
     case 'user_joined':
       return (
         <p>
-          <Link to="/members">{user.name}</Link> joined {team.name}.
+          <UserPreview user={user}>{user.name}</UserPreview>
+          &#160;joined {team.name}.
         </p>
       )
 
     case 'team_created':
       return (
         <p>
-          <Link to="/members">{user.name}</Link> created {team.name}.
+          <UserPreview user={user}>{user.name}</UserPreview>
+          &#160;created {team.name}.
         </p>
       )
 
@@ -46,9 +47,9 @@ const Feed: FunctionComponent = () => {
       <h1>Feed</h1>
       {feed.map((item, index) => (
         <article key={index}>
-          <Link to="/members">
+          <UserPreview user={item.user}>
             <Avatar data={item.user} />
-          </Link>
+          </UserPreview>
           <FeedBody item={item} />
           <span>{moment(item.created).fromNow(true)}</span>
         </article>

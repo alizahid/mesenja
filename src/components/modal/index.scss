@@ -1,0 +1,30 @@
+@import '../../assets/variables';
+
+#modal {
+  align-items: center;
+  animation: modal 0.1s linear;
+  background: $color-modal;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: 0.1s;
+  z-index: 10;
+
+  &.closing {
+    opacity: 0;
+  }
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

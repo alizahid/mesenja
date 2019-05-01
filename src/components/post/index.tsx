@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
 import Markdown from 'react-markdown'
 import moment from 'moment'
 
@@ -7,6 +6,7 @@ import { Post as PostI } from '../../store/models/posts'
 
 import Attachment from '../attachment'
 import Avatar from '../avatar'
+import UserPreview from '../user-preview'
 
 import './index.scss'
 
@@ -20,10 +20,10 @@ const Post: FunctionComponent<Props> = ({
   return (
     <article className="post">
       <header>
-        <Link className="user" to="/members">
+        <UserPreview user={user}>
           <Avatar data={user} />
           <h4>{user.name}</h4>
-        </Link>
+        </UserPreview>
         <span>{moment(created).fromNow(true)}</span>
       </header>
       <Markdown className="body" source={body} />
