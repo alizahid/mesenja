@@ -1,11 +1,12 @@
 import { Action, Thunk, action, thunk } from 'easy-peasy'
 
+import { StoreModel } from './index'
 import { Team } from './teams'
 
 export interface NavModel {
   team?: Team
 
-  setTeam: Thunk<NavModel, string>
+  setTeam: Thunk<NavModel, string, any, StoreModel>
   updateTeam: Action<NavModel, Team>
 }
 
@@ -13,7 +14,6 @@ const nav: NavModel = {
   team: undefined,
 
   setTeam: thunk(async (actions, payload, { getStoreState }) => {
-    // @ts-ignore
     const {
       teams: { teams }
     }: {
@@ -21,8 +21,6 @@ const nav: NavModel = {
         teams: Team[]
       }
     } = getStoreState()
-
-    console.log(teams)
 
     const team = teams.find(({ id }) => id === payload)
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
-// import { get } from 'lodash'
+import { get } from 'lodash'
 import moment from 'moment'
 
 import { Notification as NotificationI } from '../../store/models/notifications'
@@ -33,11 +33,10 @@ const NotificationBody: FunctionComponent<Props> = ({
 }
 
 const Notifications: FunctionComponent = () => {
-  // const { team } = useStore(state => state.nav)
-  const notifications = useStore(state => state.notifications.notifications)
-  // .filter(
-  //   ({ team: { id } }) => id === get(team, 'id')
-  // )
+  const { team } = useStore(state => state.nav)
+  const notifications = useStore(
+    state => state.notifications.notifications
+  ).filter(({ team: { id } }) => id === get(team, 'id'))
 
   return (
     <main className="notifications">

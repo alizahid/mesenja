@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react'
-
-// import { get } from 'lodash'
+import { get } from 'lodash'
 
 import { Column } from '../../components'
 import { useStore } from '../../store'
@@ -9,11 +8,10 @@ import './index.scss'
 
 const Posts: FunctionComponent = () => {
   const me = '1'
-  // const { team } = useStore(state => state.nav)
-  const posts = useStore(state => state.posts.posts)
-  // .filter(
-  //   ({ team: { id } }) => id === get(team, 'id')
-  // )
+  const { team } = useStore(state => state.nav)
+  const posts = useStore(state => state.posts.posts).filter(
+    ({ team: { id } }) => id === get(team, 'id')
+  )
 
   const all = posts.filter(
     ({ tagged = [], user: { id } }) =>

@@ -1,0 +1,69 @@
+@import '../../assets/variables';
+
+.team-switcher {
+  button {
+    appearance: none;
+    background: url('../../assets/mesenja.svg') center no-repeat;
+    background-size: 1.5em;
+    border: none;
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    height: $nav-bar-size;
+    width: $nav-bar-size;
+  }
+
+  div {
+    background: rgba(0, 0, 0, 0.25);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  section {
+    background: $color-accent;
+    border-radius: $border-radius;
+    left: $nav-bar-size + $layout-padding;
+    position: fixed;
+    top: $layout-padding;
+
+    &:before {
+      border: solid transparent;
+      border-right-color: $color-accent;
+      border-width: $layout-padding / 2;
+      content: '';
+      height: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 100%;
+      top: $layout-padding;
+      width: 0;
+    }
+
+    a {
+      align-items: center;
+      color: $color-background;
+      display: flex;
+      padding: $layout-padding;
+
+      &:first-child {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $border-radius $border-radius;
+      }
+
+      &:hover {
+        background: lighten($color-accent, 5%);
+        filter: brightness(1);
+      }
+
+      img {
+        margin-right: $layout-padding;
+      }
+    }
+  }
+}

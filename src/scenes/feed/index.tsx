@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
-// import { get } from 'lodash'
+import { get } from 'lodash'
 import moment from 'moment'
 
 import { Feed as FeedI } from '../../store/models/feed'
@@ -36,11 +36,10 @@ const FeedBody: FunctionComponent<Props> = ({ item: { team, type, user } }) => {
 }
 
 const Feed: FunctionComponent = () => {
-  // const { team } = useStore(state => state.nav)
-  const feed = useStore(state => state.feed.feed)
-  // .filter(
-  //   ({ team: { id } }) => id === get(team, 'id')
-  // )
+  const { team } = useStore(state => state.nav)
+  const feed = useStore(state => state.feed.feed).filter(
+    ({ team: { id } }) => id === get(team, 'id')
+  )
 
   return (
     <main className="feed">

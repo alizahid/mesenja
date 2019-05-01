@@ -7,11 +7,10 @@ import { useStore } from '../../store'
 import './index.scss'
 
 const Members: FunctionComponent = () => {
-  // const { team } = useStore(state => state.nav)
-  const users = useStore(state => state.users.users)
-  // .filter(
-  //   ({ team: { id } }) => id === get(team, 'id')
-  // )
+  const { team } = useStore(state => state.nav)
+  const users = useStore(state => state.users.users).filter(
+    ({ teams }) => team && teams.includes(team)
+  )
 
   return (
     <main className="members">

@@ -1,5 +1,5 @@
 export { default as Feed } from './feed'
-export { default as Home } from './home'
+export { default as Team } from './team'
 export { default as Members } from './members'
 export { default as Notifications } from './notifications'
 export { default as Posts } from './posts'

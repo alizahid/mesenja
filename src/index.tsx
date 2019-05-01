@@ -7,7 +7,7 @@ import { unregister } from './serviceWorker'
 
 import { NavBar } from './components'
 import { moment } from './lib'
-import { Feed, Home, Members, Notifications, Posts } from './scenes'
+import { Notifications, Team } from './scenes'
 import { store } from './store'
 
 import './index.scss'
@@ -18,12 +18,9 @@ ReactDOM.render(
   <StoreProvider store={store}>
     <BrowserRouter>
       <NavBar />
-      <Route path="/" exact component={Home} />
-      <Route path="/feed" component={Feed} />
-      <Route path="/posts" component={Posts} />
-      <Route path="/members" component={Members} />
-      <Route path="/notifications" component={Notifications} />
-      <Route path="/profile" component={Home} />
+      <Route path="/" exact render={() => <div className="hello">hello</div>} />
+      <Route path="/teams/:id" component={Team} />
+      <Route path="/profile" component={Notifications} />
     </BrowserRouter>
   </StoreProvider>,
   document.getElementById('root')
