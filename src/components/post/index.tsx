@@ -24,7 +24,7 @@ const Post: FunctionComponent<Props> = ({
           <Avatar data={user} />
           <h4>{user.name}</h4>
         </UserPreview>
-        <span>{moment(created).fromNow(true)}</span>
+        <aside>{moment(created).fromNow(true)}</aside>
       </header>
       <Markdown className="body" source={body} />
       {attachments && (

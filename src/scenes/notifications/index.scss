@@ -24,18 +24,10 @@ main.notifications {
 
       span {
         color: inherit;
-
-        &:before {
-          content: '\a0';
-        }
-
-        &:after {
-          content: '\a0';
-        }
       }
     }
 
-    span {
+    aside {
       color: $color-text-light;
     }
   }

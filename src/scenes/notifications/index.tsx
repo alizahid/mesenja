@@ -22,7 +22,7 @@ const NotificationBody: FunctionComponent<Props> = ({
       return (
         <p>
           <UserPreview user={user}>{user.name}</UserPreview>
-          <span>tagged you in a</span>
+          <span>&#160;tagged you in a&#160;</span>
           <Link to="/posts">post</Link>.
         </p>
       )
@@ -47,7 +47,7 @@ const Notifications: FunctionComponent = () => {
             <Avatar data={notification.user} />
           </UserPreview>
           <NotificationBody notification={notification} />
-          <span>{moment(notification.created).fromNow(true)}</span>
+          <aside>{moment(notification.created).fromNow(true)}</aside>
         </article>
       ))}
     </main>

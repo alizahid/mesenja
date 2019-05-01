@@ -51,7 +51,7 @@ const Feed: FunctionComponent = () => {
             <Avatar data={item.user} />
           </UserPreview>
           <FeedBody item={item} />
-          <span>{moment(item.created).fromNow(true)}</span>
+          <aside>{moment(item.created).fromNow(true)}</aside>
         </article>
       ))}
     </main>

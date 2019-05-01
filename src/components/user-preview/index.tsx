@@ -16,9 +16,9 @@ const UserPreview: FunctionComponent<Props> = ({ children, user }) => {
 
   return (
     <>
-      <div className="user" onClick={() => setVisible(true)}>
+      <span className="user" onClick={() => setVisible(true)}>
         {children}
-      </div>
+      </span>
       {visible && (
         <Modal onClick={() => setVisible(false)}>
           <div className="user-preview">

@@ -34,7 +34,7 @@ const Members: FunctionComponent = () => {
               <p>{user.email}</p>
             </div>
           </UserPreview>
-          <span>{getRole(user, team)}</span>
+          <aside>{getRole(user, team)}</aside>
         </article>
       ))}
     </main>
