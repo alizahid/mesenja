@@ -7,7 +7,7 @@ import { unregister } from './serviceWorker'
 
 import { NavBar } from './components'
 import { moment } from './lib'
-import { Notifications, Team } from './scenes'
+import { Profile, Team } from './scenes'
 import { store } from './store'
 
 import './index.scss'
@@ -20,7 +20,7 @@ ReactDOM.render(
       <NavBar />
       <Route path="/" exact render={() => <div className="hello">hello</div>} />
       <Route path="/teams/:id" component={Team} />
-      <Route path="/profile" component={Notifications} />
+      <Route path="/profile" component={Profile} />
     </BrowserRouter>
   </StoreProvider>,
   document.getElementById('root')

@@ -1,0 +1,42 @@
+@import '../../assets/variables';
+
+main.profile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .avatar {
+    height: 10em;
+    width: 10em;
+  }
+
+  h1 {
+    margin: $layout-padding 0 0;
+  }
+
+  p {
+    color: $color-text-light;
+    margin-top: $layout-padding;
+  }
+
+  h2 {
+    margin: $layout-padding 0 (-$layout-padding / 2) 0;
+  }
+
+  section {
+    display: flex;
+    margin: $layout-margin 0;
+    max-width: $column-max-width;
+
+    a {
+      background: $color-accent;
+      border-radius: $border-radius;
+      color: $color-background;
+      font-size: $text-size-regular;
+      margin: $layout-padding;
+      padding: $layout-padding;
+    }
+  }
+}

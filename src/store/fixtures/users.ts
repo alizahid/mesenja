@@ -4,7 +4,7 @@ import { User } from '../models/users'
 
 import teams from './teams'
 
-const [mesenja] = teams
+const [mesenja, designplox] = teams
 
 const users: User[] = [
   {
@@ -13,7 +13,7 @@ const users: User[] = [
     name: 'Ali Zahid',
     email: 'ali@mesenja.com',
     role: 'owner',
-    teams: [mesenja]
+    teams: [mesenja, designplox]
   },
   {
     id: '2',

@@ -8,7 +8,7 @@ export interface User {
   joined: object
   name: string
   role?: string
-  teams: [Team]
+  teams: Team[]
 }
 
 export interface UsersModel {
