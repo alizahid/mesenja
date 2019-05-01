@@ -14,7 +14,7 @@ const fixtures: Post[] = [
 
 Pellentesque tempor, nisl at consectetur finibus, elit nulla rutrum nibh, et iaculis felis dolor a enim. Sed lacinia dapibus vestibulum.
 
-Morbi ornare molestie odio, [eu laoreet neque porttitor sed](https://designplox.com). Integer pretium purus pulvinar dignissim varius. Ut sed mi vitae odio luctus tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+Morbi ornare molestie odio, https://designplox.com. Integer pretium purus pulvinar dignissim varius. Ut sed mi vitae odio luctus tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
 Nullam euismod nulla sem, at gravida mauris malesuada ut. Nam eu aliquam dolor. Ut consequat sem quis nulla condimentum, ut congue tellus mollis. Suspendisse eu ultrices ipsum. Quisque ut tincidunt ex. Curabitur semper accumsan condimentum.
 
@@ -30,7 +30,9 @@ In pharetra nisi turpis, scelerisque tincidunt ex imperdiet eget.`,
 
 Sed vestibulum pharetra elementum. Pellentesque at sollicitudin lectus. Nulla finibus egestas lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
-Vestibulum blandit diam sollicitudin, commodo dui non, accumsan sapien. Proin viverra sagittis convallis. Fusce id risus convallis, placerat augue at, laoreet felis.`,
+Vestibulum blandit diam sollicitudin, commodo dui non, accumsan sapien. Proin viverra sagittis convallis. Fusce id risus convallis, placerat augue at, laoreet felis.
+
+{user:1}`,
     created: moment().subtract(24, 'minutes'),
     tagged: [ali],
     team: mesenja,
@@ -50,7 +52,7 @@ Vestibulum blandit diam sollicitudin, commodo dui non, accumsan sapien. Proin vi
 
 Curabitur elementum dictum erat, vel posuere risus porta id. Nullam elementum, nunc eget convallis convallis, odio nisi aliquet leo, quis lobortis nulla est vitae mi. Duis vestibulum sapien eu risus scelerisque, sed consectetur lorem cursus.
 
-**Maecenas mi nisl, tincidunt eu porta eu**
+Maecenas mi nisl, tincidunt eu porta eu
 
 Pellentesque posuere ullamcorper enim at suscipit. Maecenas mi nisl, tincidunt eu porta eu, gravida sit amet purus. Nulla quis urna sed quam varius tincidunt. Nullam congue, metus id volutpat aliquet, risus diam vulputate tellus, vitae condimentum ipsum metus ut metus. Donec viverra leo in velit porttitor feugiat at vel sapien.
 
@@ -63,9 +65,9 @@ Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. 
   {
     body: `Mauris quis bibendum elit. Nulla facilisi. Mauris auctor justo et lacus dictum mattis.
 
-# Curabitur risus magna, ullamcorper in neque quis, aliquam sodales nisl.
+{user:1} Curabitur risus magna, ullamcorper in neque quis, aliquam sodales nisl.
 
-Nam suscipit non tellus sit amet rutrum. Phasellus et sollicitudin mauris, a dictum nunc. Pellentesque eu lectus luctus, porttitor nisl eu, scelerisque lorem.`,
+{user:4} Nam suscipit non tellus sit amet rutrum. Phasellus et sollicitudin mauris, a dictum nunc. Pellentesque eu lectus luctus, porttitor nisl eu, scelerisque lorem.`,
     created: moment().subtract(2, 'hours'),
     liked: [ali, janet, sara],
     tagged: [ali, janet],

@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import Markdown from 'react-markdown'
 import moment from 'moment'
 
 import { Post as PostI } from '../../store/models/posts'
+
+import { formatter } from '../../lib'
 
 import Attachment from '../attachment'
 import Avatar from '../avatar'
@@ -26,7 +27,7 @@ const Post: FunctionComponent<Props> = ({
         </UserPreview>
         <aside>{moment(created).fromNow(true)}</aside>
       </header>
-      <Markdown className="body" source={body} />
+      <div className="body">{formatter(body)}</div>
       {attachments && (
         <div className="attachments">
           {attachments.map((attachment, index) => (
