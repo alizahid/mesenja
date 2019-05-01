@@ -7,7 +7,11 @@ import { Team } from '../../store/models/teams'
 import { Avatar } from '../../components'
 import { useStore } from '../../store'
 
+import users from '../../store/fixtures/users'
+
 import './index.scss'
+
+const [ali] = users
 
 const buildPath = (team: Team, current: undefined | Team, path: string) => {
   if (current && path.length > 1) {
@@ -19,7 +23,7 @@ const buildPath = (team: Team, current: undefined | Team, path: string) => {
 
 const TeamSwitcher: FunctionComponent = () => {
   const current = useStore(state => state.nav.team)
-  const teams = useStore(state => state.teams.teams)
+  const { teams } = ali
 
   const [visible, setVisible] = useState(false)
 
