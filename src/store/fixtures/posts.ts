@@ -1,4 +1,5 @@
 import moment from 'moment'
+import shortid from 'shortid'
 
 import { Post } from '../models/posts'
 
@@ -27,12 +28,15 @@ Nullam euismod nulla sem, at gravida mauris malesuada ut. Nam eu aliquam dolor. 
 
 In pharetra nisi turpis, scelerisque tincidunt ex imperdiet eget.`,
     created: moment().subtract(4, 'hours'),
+    id: shortid.generate(),
     liked: [ali, janet, danyal, sara],
+    seen: [ali],
     tagged: [janet],
     team: mesenja,
     user: ali
   },
   {
+    attachments: [],
     body: `Sed auctor tortor in ipsum finibus, in gravida turpis aliquet. Integer id odio turpis. Duis venenatis lectus ut mollis blandit.
 
 Sed vestibulum pharetra elementum. Pellentesque at sollicitudin lectus. Nulla finibus egestas lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
@@ -41,6 +45,9 @@ Vestibulum blandit diam sollicitudin, commodo dui non, accumsan sapien. Proin vi
 
 {user:1}`,
     created: moment().subtract(24, 'minutes'),
+    id: shortid.generate(),
+    liked: [],
+    seen: [janet],
     tagged: [ali],
     team: mesenja,
     user: janet
@@ -65,23 +72,30 @@ Pellentesque posuere ullamcorper enim at suscipit. Maecenas mi nisl, tincidunt e
 
 Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. Phasellus nec consequat augue. Praesent sit amet tortor vel augue aliquet mattis. Quisque fermentum metus lectus, id commodo sapien mattis porta.`,
     created: moment().subtract(45, 'minutes'),
+    id: shortid.generate(),
+    seen: [],
     liked: [ali, sara],
+    tagged: [],
     team: mesenja,
     user: danyal
   },
   {
+    attachments: [],
     body: `Mauris quis bibendum elit. Nulla facilisi. Mauris auctor justo et lacus dictum mattis.
 
 {user:1} Curabitur risus magna, ullamcorper in neque quis, aliquam sodales nisl.
 
 {user:4} Nam suscipit non tellus sit amet rutrum. Phasellus et sollicitudin mauris, a dictum nunc. Pellentesque eu lectus luctus, porttitor nisl eu, scelerisque lorem.`,
     created: moment().subtract(2, 'hours'),
+    id: shortid.generate(),
     liked: [ali, janet, sara],
+    seen: [],
     tagged: [ali, janet],
     team: mesenja,
     user: sara
   },
   {
+    attachments: [],
     body: `Fusce pretium metus id nisi placerat malesuada. Proin accumsan ullamcorper sem. Mauris ultricies mauris sit amet ex dictum, sed egestas urna laoreet.
 
 Ut tristique lorem dui, non posuere est lacinia vestibulum. Nunc pellentesque ligula sed vehicula commodo. Proin commodo blandit tortor, id gravida dui facilisis quis.
@@ -90,7 +104,10 @@ Nulla cursus vitae risus et dictum. Sed vel nulla risus. Sed nec iaculis risus, 
 
 Nullam tempor magna ex, vel suscipit tellus rhoncus sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.`,
     created: moment().subtract(4, 'hours'),
+    id: shortid.generate(),
+    seen: [],
     liked: [janet, danyal, sara],
+    tagged: [],
     team: mesenja,
     user: ali
   }

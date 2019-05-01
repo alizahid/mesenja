@@ -1,4 +1,5 @@
 import moment from 'moment'
+import shortid from 'shortid'
 
 import { Notification } from '../models/notifications'
 
@@ -13,6 +14,7 @@ const [janet, sara] = users
 const fixtures: Notification[] = [
   {
     created: moment().subtract(24, 'minutes'),
+    id: shortid.generate(),
     read: false,
     target: second,
     team: mesenja,
@@ -21,6 +23,7 @@ const fixtures: Notification[] = [
   },
   {
     created: moment().subtract(2, 'hours'),
+    id: shortid.generate(),
     read: true,
     target: forth,
     team: mesenja,

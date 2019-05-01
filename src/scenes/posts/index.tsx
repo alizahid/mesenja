@@ -17,9 +17,9 @@ const Posts: FunctionComponent = () => {
   )
 
   const all = posts.filter(
-    ({ tagged = [], user: { id } }) => !tagged.includes(ali) && id !== ali.id
+    ({ tagged, user: { id } }) => !tagged.includes(ali) && id !== ali.id
   )
-  const tagged = posts.filter(({ tagged = [] }) => tagged.includes(ali))
+  const tagged = posts.filter(({ tagged }) => tagged.includes(ali))
   const mine = posts.filter(({ user: { id } }) => id === ali.id)
 
   return (

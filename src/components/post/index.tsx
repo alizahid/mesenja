@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import moment from 'moment'
+import { InView } from 'react-intersection-observer'
 import { random } from 'lodash'
 
 import { Post as PostI } from '../../store/models/posts'
+
+import { useActions } from '../../store'
 
 import { formatter } from '../../lib'
 
@@ -17,10 +20,18 @@ interface Props {
 }
 
 const Post: FunctionComponent<Props> = ({
-  post: { attachments, body, created, liked, user }
+  post: { attachments, body, created, id, liked, user }
 }) => {
+  const markAsRead = useActions(actions => actions.posts.markAsRead)
+
   return (
-    <article className="post">
+    <InView
+      as="article"
+      className="post"
+      onChange={inView => inView && markAsRead(id)}
+      threshold={0.5}
+      triggerOnce
+    >
       <header>
         <UserPreview user={user}>
           <Avatar data={user} />
@@ -29,7 +40,7 @@ const Post: FunctionComponent<Props> = ({
         <aside>{moment(created).fromNow(true)}</aside>
       </header>
       <div className="body">{formatter(body)}</div>
-      {attachments && (
+      {attachments.length > 0 && (
         <div className="attachments">
           {attachments.map((attachment, index) => (
             <Attachment key={index} attachment={attachment} />
@@ -38,13 +49,13 @@ const Post: FunctionComponent<Props> = ({
       )}
       <footer>
         <a className="likes" href="/posts">
-          {liked ? liked.length : 0}
+          {liked.length}
         </a>
         <a className="comments" href="/posts">
           {random(0, 10)}
         </a>
       </footer>
-    </article>
+    </InView>
   )
 }
 

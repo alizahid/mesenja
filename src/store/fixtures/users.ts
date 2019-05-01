@@ -1,4 +1,5 @@
 import moment from 'moment'
+import shortid from 'shortid'
 
 import { User } from '../models/users'
 
@@ -8,7 +9,7 @@ const [mesenja, designplox] = teams
 
 const users: User[] = [
   {
-    id: '1',
+    id: shortid.generate(),
     joined: moment().subtract(4, 'hours'),
     name: 'Ali Zahid',
     email: 'ali@mesenja.com',
@@ -27,7 +28,7 @@ const users: User[] = [
     teams: [mesenja, designplox]
   },
   {
-    id: '2',
+    id: shortid.generate(),
     joined: moment().subtract(3, 'hours'),
     name: 'Janet Paul',
     email: 'janet@mesenja.com',
@@ -41,7 +42,7 @@ const users: User[] = [
     teams: [mesenja]
   },
   {
-    id: '3',
+    id: shortid.generate(),
     joined: moment().subtract(3, 'hours'),
     name: 'Danyal Zahid',
     email: 'danyal@mesenja.com',
@@ -55,7 +56,7 @@ const users: User[] = [
     teams: [mesenja]
   },
   {
-    id: '4',
+    id: shortid.generate(),
     joined: moment().subtract(2, 'hours'),
     name: 'Sara Zahid',
     email: 'sara@mesenja.com',

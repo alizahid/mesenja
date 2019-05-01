@@ -6,7 +6,7 @@ import moment from 'moment'
 import { Notification as NotificationI } from '../../store/models/notifications'
 
 import { Avatar, UserPreview } from '../../components'
-import { useStore } from '../../store'
+import { useActions, useStore } from '../../store'
 
 import './index.scss'
 
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const NotificationBody: FunctionComponent<Props> = ({
-  notification: { type, user }
+  notification: { team, type, user }
 }) => {
   switch (type) {
     case 'tag':
@@ -23,7 +23,7 @@ const NotificationBody: FunctionComponent<Props> = ({
         <p>
           <UserPreview user={user}>{user.name}</UserPreview>
           <span>&#160;tagged you in a&#160;</span>
-          <Link to="/posts">post</Link>.
+          <Link to={`/teams/${team.id}/posts`}>post</Link>.
         </p>
       )
 
@@ -33,7 +33,10 @@ const NotificationBody: FunctionComponent<Props> = ({
 }
 
 const Notifications: FunctionComponent = () => {
+  const markAsRead = useActions(state => state.notifications.markAsRead)
+
   const { team } = useStore(state => state.nav)
+
   const notifications = useStore(
     state => state.notifications.notifications
   ).filter(({ team: { id } }) => id === get(team, 'id'))
@@ -42,7 +45,11 @@ const Notifications: FunctionComponent = () => {
     <main className="notifications">
       <h1>Notifications</h1>
       {notifications.map((notification, index) => (
-        <article className={notification.read ? 'read' : 'unread'} key={index}>
+        <article
+          className={notification.read ? 'read' : 'unread'}
+          key={index}
+          onClick={() => markAsRead(notification.id)}
+        >
           <UserPreview user={notification.user}>
             <Avatar data={notification.user} />
           </UserPreview>
