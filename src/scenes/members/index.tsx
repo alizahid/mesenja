@@ -1,10 +1,21 @@
 import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
 
+import { Team } from '../../store/models/teams'
+import { User } from '../../store/models/users'
+
 import { Avatar } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
+
+const getRole = (user: User, team: undefined | Team) => {
+  const role = user.roles.find(role => role.team === team)
+
+  if (role) {
+    return role.role
+  }
+}
 
 const Members: FunctionComponent = () => {
   const { team } = useStore(state => state.nav)
@@ -24,7 +35,7 @@ const Members: FunctionComponent = () => {
               <p>{user.email}</p>
             </div>
           </Link>
-          <span>{user.role}</span>
+          <span>{getRole(user, team)}</span>
         </article>
       ))}
     </main>

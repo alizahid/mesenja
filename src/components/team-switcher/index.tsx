@@ -2,16 +2,14 @@ import React, { FunctionComponent, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import useRouter from 'use-react-router'
 
+import { Team } from '../../store/models/teams'
+
 import { Avatar } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
 
-const buildPath = (
-  team: { id: string },
-  current: any | { id: string },
-  path: string
-) => {
+const buildPath = (team: Team, current: undefined | Team, path: string) => {
   if (current) {
     return path.replace(current.id, team.id)
   }

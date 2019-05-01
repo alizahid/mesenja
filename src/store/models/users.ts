@@ -3,11 +3,15 @@ import fixtures from '../fixtures/users'
 import { Team } from './teams'
 
 export interface User {
-  email?: string
+  email: string
   id: string
   joined: object
   name: string
-  role?: string
+  roles: {
+    public: boolean
+    role: string
+    team: Team
+  }[]
   teams: Team[]
 }
 

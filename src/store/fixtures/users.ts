@@ -12,7 +12,18 @@ const users: User[] = [
     joined: moment().subtract(4, 'hours'),
     name: 'Ali Zahid',
     email: 'ali@mesenja.com',
-    role: 'owner',
+    roles: [
+      {
+        public: true,
+        role: 'owner',
+        team: mesenja
+      },
+      {
+        public: true,
+        role: 'owner',
+        team: designplox
+      }
+    ],
     teams: [mesenja, designplox]
   },
   {
@@ -20,7 +31,13 @@ const users: User[] = [
     joined: moment().subtract(3, 'hours'),
     name: 'Janet Paul',
     email: 'janet@mesenja.com',
-    role: 'member',
+    roles: [
+      {
+        public: true,
+        role: 'member',
+        team: mesenja
+      }
+    ],
     teams: [mesenja]
   },
   {
@@ -28,7 +45,13 @@ const users: User[] = [
     joined: moment().subtract(3, 'hours'),
     name: 'Danyal Zahid',
     email: 'danyal@mesenja.com',
-    role: 'member',
+    roles: [
+      {
+        public: true,
+        role: 'member',
+        team: mesenja
+      }
+    ],
     teams: [mesenja]
   },
   {
@@ -36,7 +59,13 @@ const users: User[] = [
     joined: moment().subtract(2, 'hours'),
     name: 'Sara Zahid',
     email: 'sara@mesenja.com',
-    role: 'member',
+    roles: [
+      {
+        public: true,
+        role: 'member',
+        team: mesenja
+      }
+    ],
     teams: [mesenja]
   }
 ]

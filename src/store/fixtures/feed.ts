@@ -5,10 +5,16 @@ import { Feed } from '../models/feed'
 import teams from './teams'
 import users from './users'
 
-const [mesenja] = teams
+const [mesenja, designplox] = teams
 const [ali, janet, danyal, sara] = users
 
 const fixtures: Feed[] = [
+  {
+    created: moment().subtract(1, 'hours'),
+    team: designplox,
+    type: 'team_created',
+    user: ali
+  },
   {
     created: moment().subtract(2, 'hours'),
     team: mesenja,
