@@ -18,7 +18,9 @@ const Profille: FunctionComponent = () => {
       <h2>Teams</h2>
       <section>
         {ali.teams.map(({ id, name }, index) => (
-          <Link to={`/teams/${id}`}>{name}</Link>
+          <Link key={index} to={`/teams/${id}`}>
+            {name}
+          </Link>
         ))}
       </section>
     </main>
