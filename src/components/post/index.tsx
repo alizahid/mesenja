@@ -13,23 +13,36 @@ import Attachment from '../attachment'
 import Avatar from '../avatar'
 import UserPreview from '../user-preview'
 
+import users from '../../store/fixtures/users'
+
 import './index.scss'
 
 interface Props {
   post: PostI
 }
 
+const [ali] = users
+
 const Post: FunctionComponent<Props> = ({
-  post: { attachments, body, created, id, liked, user }
+  post: { attachments, body, created, id, likes, user }
 }) => {
   const markAsRead = useActions(actions => actions.posts.markAsRead)
+  const toggleLike = useActions(actions => actions.posts.toggleLike)
+
+  const liked = likes.includes(ali)
 
   return (
     <InView
       as="article"
       className="post"
-      onChange={inView => inView && markAsRead(id)}
-      threshold={0.5}
+      onChange={inView =>
+        inView &&
+        markAsRead({
+          post: id,
+          user: ali
+        })
+      }
+      threshold={0.25}
       triggerOnce
     >
       <header>
@@ -48,12 +61,18 @@ const Post: FunctionComponent<Props> = ({
         </div>
       )}
       <footer>
-        <a className="likes" href="/posts">
-          {liked.length}
-        </a>
-        <a className="comments" href="/posts">
-          {random(0, 10)}
-        </a>
+        <span
+          className={`likes ${liked ? 'liked' : ''}`}
+          onClick={() =>
+            toggleLike({
+              post: id,
+              user: ali
+            })
+          }
+        >
+          {likes.length}
+        </span>
+        <span className="comments">{random(0, 10)}</span>
       </footer>
     </InView>
   )

@@ -44,12 +44,14 @@ article.post {
     display: flex;
     margin: 0 (-$layout-padding) (-$layout-padding);
 
-    a {
+    span {
       align-items: center;
       color: $color-text;
+      cursor: pointer;
       display: flex;
       opacity: 0.5;
       padding: $layout-padding;
+      transition: $transition;
 
       &:hover {
         opacity: 1;
@@ -58,6 +60,10 @@ article.post {
       &.likes {
         &:before {
           background-image: url('../../assets/likes.svg');
+        }
+
+        &.liked {
+          opacity: 1;
         }
       }
 

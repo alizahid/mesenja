@@ -1,12 +1,9 @@
 import { Action, action } from 'easy-peasy'
 
+import fixtures from '../fixtures/posts'
+
 import { Team } from './teams'
 import { User } from './users'
-
-import fixtures from '../fixtures/posts'
-import users from '../fixtures/users'
-
-const [ali] = users
 
 export interface Attachment {
   caption?: string
@@ -19,30 +16,47 @@ export interface Post {
   body: string
   created: object
   id: string
-  liked: User[]
+  likes: User[]
   seen: User[]
   tagged: User[]
   team: Team
   user: User
 }
 
+interface PostUser {
+  post: string
+  user: User
+}
+
 export interface PostsModel {
   posts: Post[]
 
-  markAsRead: Action<PostsModel, string>
+  markAsRead: Action<PostsModel, PostUser>
+  toggleLike: Action<PostsModel, PostUser>
 }
 
 const posts: PostsModel = {
   posts: fixtures,
 
-  markAsRead: action((state, payload) => {
-    const index = state.posts.findIndex(({ id }) => id === payload)
+  markAsRead: action((state, { post, user }) => {
+    const index = state.posts.findIndex(({ id }) => id === post)
 
     if (index >= 0) {
-      if (!state.posts[index].seen.includes(ali)) {
-        state.posts[index].seen.push(ali)
+      state.posts[index].seen = [user]
+    }
+  }),
+  toggleLike: action((state, { post, user }) => {
+    const index = state.posts.findIndex(({ id }) => id === post)
+
+    if (index >= 0) {
+      const liked = state.posts[index].likes.findIndex(
+        ({ id }) => id === user.id
+      )
+
+      if (liked >= 0) {
+        state.posts[index].likes.splice(liked, 1)
       } else {
-        state.posts[index].seen = [ali]
+        state.posts[index].likes.push(user)
       }
     }
   })
