@@ -10,7 +10,7 @@ section.posts {
 
   &:not(:first-child) {
     h2 {
-      border-left: 1px solid lighten($color-accent, 10%);
+      border-left: 1px solid darken($color-background, 15%);
     }
 
     section {
@@ -19,9 +19,10 @@ section.posts {
   }
 
   h2 {
-    background: $color-accent;
-    color: $color-background;
+    background: $color-background;
+    box-shadow: $color-shadow;
     font-size: $text-size-regular;
+    font-weight: bold;
     padding: $layout-padding;
   }
 
