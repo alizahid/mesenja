@@ -5,10 +5,10 @@ import { get, sortBy } from 'lodash'
 
 import { Comment } from '../../store/models/comments'
 
-import { formatter } from '../../lib'
 import { useStore } from '../../store'
 
 import Avatar from '../avatar'
+import Body from '../body'
 
 import './index.scss'
 
@@ -30,7 +30,7 @@ const Comments: FunctionComponent<Props> = ({ comments }) => {
             </Link>
             <aside>{moment(comment.created).fromNow(true)}</aside>
           </header>
-          <div>{formatter(comment.body)}</div>
+          <Body body={comment.body} />
         </article>
       ))}
     </section>

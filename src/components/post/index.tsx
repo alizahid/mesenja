@@ -8,10 +8,9 @@ import { Post as PostI } from '../../store/models/posts'
 
 import { useActions, useStore } from '../../store'
 
-import { formatter } from '../../lib'
-
 import Attachment from '../attachment'
 import Avatar from '../avatar'
+import Body from '../body'
 
 import users from '../../store/fixtures/users'
 
@@ -58,7 +57,7 @@ const Post: FunctionComponent<Props> = ({
         </Link>
         <aside>{moment(created).fromNow(true)}</aside>
       </header>
-      <div>{formatter(body)}</div>
+      <Body body={body} />
       {attachments.length > 0 && (
         <div className="attachments">
           {attachments.map((attachment, index) => (
