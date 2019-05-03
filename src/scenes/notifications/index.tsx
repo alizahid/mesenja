@@ -15,7 +15,7 @@ interface Props {
 }
 
 const NotificationBody: FunctionComponent<Props> = ({
-  notification: { team, type, user }
+  notification: { target, team, type, user }
 }) => {
   switch (type) {
     case 'tag':
@@ -23,7 +23,7 @@ const NotificationBody: FunctionComponent<Props> = ({
         <p>
           <Link to={`/teams/${team.id}/users/${user.id}`}>{user.name}</Link>
           <span>&#160;tagged you in a&#160;</span>
-          <Link to={`/teams/${team.id}/posts`}>post</Link>.
+          <Link to={`/teams/${team.id}/posts/${target.id}`}>post</Link>.
         </p>
       )
 
