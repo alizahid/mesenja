@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 
-import { Error, Post } from '../../components'
+import { Comments, Error, Post } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
@@ -16,6 +16,9 @@ const PostView: FunctionComponent<RouteComponentProps<Props>> = ({
   }
 }) => {
   const post = useStore(state => state.posts.posts).find(post => post.id === id)
+  const comments = useStore(state => state.comments.comments).filter(
+    ({ post }) => post.id === id
+  )
 
   if (!post) {
     return <Error />
@@ -24,6 +27,7 @@ const PostView: FunctionComponent<RouteComponentProps<Props>> = ({
   return (
     <main className="post-view">
       <Post post={post} />
+      <Comments comments={comments} />
     </main>
   )
 }

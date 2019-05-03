@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { InView } from 'react-intersection-observer'
-import { get, random } from 'lodash'
+import { get } from 'lodash'
 import moment from 'moment'
 
 import { Post as PostI } from '../../store/models/posts'
@@ -27,11 +27,15 @@ const Post: FunctionComponent<Props> = ({
   post: { attachments, body, created, id, likes, user }
 }) => {
   const team = useStore(state => state.nav.team)
+  const comments = useStore(state => state.comments.comments).filter(
+    ({ post }) => post.id === id
+  )
 
   const markAsRead = useActions(actions => actions.posts.markAsRead)
   const toggleLike = useActions(actions => actions.posts.toggleLike)
 
   const liked = likes.includes(ali)
+  const commented = comments.find(({ user }) => user.id === ali.id)
 
   return (
     <InView
@@ -74,8 +78,11 @@ const Post: FunctionComponent<Props> = ({
         >
           {likes.length}
         </span>
-        <Link className="comments" to={`/teams/${get(team, 'id')}/posts/${id}`}>
-          {random(0, 10)}
+        <Link
+          className={`comments ${commented ? 'commented' : ''}`}
+          to={`/teams/${get(team, 'id')}/posts/${id}`}
+        >
+          {comments.length}
         </Link>
       </footer>
     </InView>

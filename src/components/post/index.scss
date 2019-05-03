@@ -62,6 +62,10 @@ article.post {
         &:before {
           background-image: url('../../assets/comments.svg');
         }
+
+        &.commented {
+          opacity: 1;
+        }
       }
 
       &:before {

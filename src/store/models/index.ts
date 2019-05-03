@@ -1,3 +1,4 @@
+import comments, { CommentsModel } from './comments'
 import feed, { FeedModel } from './feed'
 import nav, { NavModel } from './nav'
 import notifications, { NotificationsModel } from './notifications'
@@ -6,6 +7,7 @@ import teams, { TeamsModel } from './teams'
 import users, { UsersModel } from './users'
 
 export interface StoreModel {
+  comments: CommentsModel
   feed: FeedModel
   nav: NavModel
   notifications: NotificationsModel
@@ -15,6 +17,7 @@ export interface StoreModel {
 }
 
 const model: StoreModel = {
+  comments,
   feed,
   nav,
   notifications,

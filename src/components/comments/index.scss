@@ -1,0 +1,30 @@
+@import '../../assets/variables';
+
+.comments {
+  article {
+    margin: $layout-margin $layout-padding;
+
+    header {
+      align-items: center;
+      display: flex;
+      margin-bottom: $layout-padding;
+
+      a {
+        align-items: center;
+        display: flex;
+
+        h4 {
+          flex: 1;
+          margin: 0 $layout-padding;
+        }
+      }
+
+      aside {
+        color: $color-text-light;
+        font-size: $text-size-small;
+        line-height: 1;
+        margin-left: auto;
+      }
+    }
+  }
+}
