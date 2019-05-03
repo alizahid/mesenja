@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, {
+  FunctionComponent,
+  FormEvent,
+  KeyboardEvent,
+  useState
+} from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import TextArea from 'react-autosize-textarea'
 import moment from 'moment'
@@ -30,9 +35,19 @@ const PostView: FunctionComponent<RouteComponentProps<Props>> = ({
 
   const [body, setBody] = useState('')
 
-  const reply = (event: any) => {
-    event.preventDefault()
+  const onKeyDown = (event: KeyboardEvent) => {
+    const { key, metaKey } = event
 
+    if (metaKey && key === 'Enter') {
+      reply()
+    }
+  }
+
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault()
+  }
+
+  const reply = () => {
     if (!body || !post) {
       return
     }
@@ -63,12 +78,13 @@ const PostView: FunctionComponent<RouteComponentProps<Props>> = ({
     <main className="post-view">
       <Post post={post} />
       <Comments comments={comments} />
-      <form onSubmit={reply}>
+      <form onSubmit={onSubmit}>
         <TextArea
           maxRows={10}
           onChange={({ currentTarget: { value } }) => setBody(value)}
           placeholder="Say something nice"
           value={body}
+          onKeyDown={onKeyDown}
         />
         <button onClick={reply}>Reply</button>
       </form>
