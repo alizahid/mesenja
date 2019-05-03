@@ -1,3 +1,5 @@
+import { Action, action } from 'easy-peasy'
+
 import { Post } from './posts'
 import { User } from './users'
 
@@ -12,10 +14,16 @@ export interface Comment {
 
 export interface CommentsModel {
   comments: Comment[]
+
+  addComment: Action<CommentsModel, Comment>
 }
 
 const comments: CommentsModel = {
-  comments: fixtures
+  comments: fixtures,
+
+  addComment: action((state, payload) => {
+    state.comments.push(payload)
+  })
 }
 
 export default comments

@@ -2,6 +2,7 @@
 
 main.post-view {
   max-width: $column-min-width * 2;
+  padding: $layout-padding;
 
   .post {
     header {
@@ -13,6 +14,48 @@ main.post-view {
       h4 {
         font-size: 150%;
       }
+    }
+  }
+
+  section.comments {
+    border-bottom: 1px solid $color-border;
+    border-top: 1px solid $color-border;
+  }
+
+  form {
+    display: flex;
+    margin: $layout-margin $layout-padding;
+
+    button,
+    textarea {
+      appearance: none;
+      border: none;
+      font: inherit;
+    }
+
+    button {
+      background: $color-accent;
+      border-radius: 0 $border-radius $border-radius 0;
+      color: $color-background;
+      cursor: pointer;
+      padding: $layout-padding;
+      transition: $transition;
+
+      &:hover {
+        background: darken($color-accent, 5%);
+      }
+
+      &:active {
+        background: lighten($color-accent, 5%);
+      }
+    }
+
+    textarea {
+      background: $color-background-dark;
+      border-radius: $border-radius 0 0 $border-radius;
+      flex: 1;
+      min-height: 6em;
+      padding: $layout-padding;
     }
   }
 }

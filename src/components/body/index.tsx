@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom'
 import { get } from 'lodash'
 import Linkify from 'linkifyjs/react'
 import replace from 'react-string-replace'
+// @ts-ignore
+import emojis from 'is-only-emojis'
 
 import { useStore } from '../../store'
 
 import users from '../../store/fixtures/users'
+
+import './index.scss'
 
 interface Props {
   body: string
@@ -16,7 +20,7 @@ const Body: FunctionComponent<Props> = ({ body }) => {
   const team = useStore(state => state.nav.team)
 
   return (
-    <div>
+    <div className={emojis(body) ? 'emojis' : ''}>
       {body
         .split('\n')
         .filter(Boolean)
