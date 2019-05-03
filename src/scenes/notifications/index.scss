@@ -3,9 +3,6 @@
 main.notifications {
   padding: $layout-margin;
 
-  h1 {
-  }
-
   article {
     align-items: center;
     display: flex;
@@ -17,10 +14,6 @@ main.notifications {
 
     p {
       margin: 0 $layout-padding;
-
-      .user {
-        float: left;
-      }
 
       span {
         color: inherit;

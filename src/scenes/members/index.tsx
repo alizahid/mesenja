@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react'
+import { Link } from 'react-router-dom'
+import { get } from 'lodash'
 
 import { Team } from '../../store/models/teams'
 import { User } from '../../store/models/users'
 
-import { Avatar, UserPreview } from '../../components'
+import { Avatar } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'
@@ -17,7 +19,7 @@ const getRole = (user: User, team: undefined | Team) => {
 }
 
 const Members: FunctionComponent = () => {
-  const { team } = useStore(state => state.nav)
+  const team = useStore(state => state.nav.team)
   const users = useStore(state => state.users.users).filter(
     ({ teams }) => team && teams.includes(team)
   )
@@ -27,13 +29,13 @@ const Members: FunctionComponent = () => {
       <h1>Members</h1>
       {users.map((user, index) => (
         <article key={index}>
-          <UserPreview user={user}>
+          <Link to={`/teams/${get(team, 'id')}/users/${user.id}`}>
             <Avatar data={user} />
             <div>
               <p>{user.name}</p>
               <p>{user.email}</p>
             </div>
-          </UserPreview>
+          </Link>
           <aside>{getRole(user, team)}</aside>
         </article>
       ))}

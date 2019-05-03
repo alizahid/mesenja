@@ -1,5 +1,4 @@
 import moment from 'moment'
-import shortid from 'shortid'
 
 import { Post } from '../models/posts'
 
@@ -31,7 +30,7 @@ Nullam euismod nulla sem, at gravida mauris malesuada ut. Nam eu aliquam dolor. 
 
 In pharetra nisi turpis, scelerisque tincidunt ex imperdiet eget.`,
     created: moment().subtract(4, 'hours'),
-    id: shortid.generate(),
+    id: 'ZsgiMhAS3M',
     likes: [ali, janet, danyal, sara],
     seen: [ali],
     tagged: [janet],
@@ -48,7 +47,7 @@ Vestibulum blandit diam sollicitudin, commodo dui non, accumsan sapien. Proin vi
 
 {user:${id_ali}}`,
     created: moment().subtract(24, 'minutes'),
-    id: shortid.generate(),
+    id: 'Mel0MW6Ygx',
     likes: [],
     seen: [janet],
     tagged: [ali],
@@ -75,7 +74,7 @@ Pellentesque posuere ullamcorper enim at suscipit. Maecenas mi nisl, tincidunt e
 
 Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. Phasellus nec consequat augue. Praesent sit amet tortor vel augue aliquet mattis. Quisque fermentum metus lectus, id commodo sapien mattis porta.`,
     created: moment().subtract(45, 'minutes'),
-    id: shortid.generate(),
+    id: 'EShhJme9Bi',
     seen: [],
     likes: [ali, sara],
     tagged: [],
@@ -90,7 +89,7 @@ Nulla ultrices eros a commodo varius. Sed condimentum nunc sed laoreet commodo. 
 
 {user:${id_janet}} Nam suscipit non tellus sit amet rutrum. Phasellus et sollicitudin mauris, a dictum nunc. Pellentesque eu lectus luctus, porttitor nisl eu, scelerisque lorem.`,
     created: moment().subtract(2, 'hours'),
-    id: shortid.generate(),
+    id: 'NqVElnvwSz',
     likes: [ali, janet, sara],
     seen: [],
     tagged: [ali, janet],
@@ -107,7 +106,7 @@ Nulla cursus vitae risus et dictum. Sed vel nulla risus. Sed nec iaculis risus, 
 
 Nullam tempor magna ex, vel suscipit tellus rhoncus sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.`,
     created: moment().subtract(4, 'hours'),
-    id: shortid.generate(),
+    id: 'lz6OX_9EZw',
     seen: [],
     likes: [janet, danyal, sara],
     tagged: [],

@@ -1,12 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { get } from 'lodash'
 import Linkify from 'linkifyjs/react'
 import replace from 'react-string-replace'
 
+import { useStore } from '../store'
+
 import users from '../store/fixtures/users'
 
-import { UserPreview } from '../components'
-
 export default (body: string) => {
+  const team = useStore(state => state.nav.team)
+
   return body.split('\n').map((text, index) => (
     <p key={index}>
       <Linkify
@@ -19,9 +23,12 @@ export default (body: string) => {
 
           if (user) {
             return (
-              <UserPreview key={index} user={user}>
+              <Link
+                to={`/teams/${get(team, 'id')}/users/${user.id}`}
+                key={index}
+              >
                 @{user.name}
-              </UserPreview>
+              </Link>
             )
           }
         })}

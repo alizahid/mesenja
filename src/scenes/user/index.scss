@@ -1,0 +1,24 @@
+@import '../../assets/variables';
+
+main.user {
+  padding: $layout-margin;
+
+  header {
+    align-items: center;
+    display: flex;
+
+    img {
+      height: $avatar-size * 2;
+      width: $avatar-size * 2;
+    }
+
+    div {
+      margin-left: $layout-margin;
+
+      p {
+        font-size: $text-size-small;
+        margin: $layout-padding 0 0;
+      }
+    }
+  }
+}

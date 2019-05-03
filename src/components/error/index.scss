@@ -1,0 +1,8 @@
+@import '../../assets/variables';
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $layout-margin;
+}

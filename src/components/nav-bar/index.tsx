@@ -13,7 +13,7 @@ import './index.scss'
 const [ali] = users
 
 const NavBar: FunctionComponent = () => {
-  const { team } = useStore(state => state.nav)
+  const team = useStore(state => state.nav.team)
 
   const posts =
     useStore(state => state.posts.posts).filter(

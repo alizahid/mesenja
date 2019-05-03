@@ -7,22 +7,23 @@ main.profile {
   justify-content: center;
   text-align: center;
 
-  .avatar {
-    height: 10em;
-    width: 10em;
-  }
+  header {
+    align-items: center;
+    display: flex;
 
-  h1 {
-    margin: $layout-padding 0 0;
-  }
+    img {
+      height: $avatar-size * 2;
+      width: $avatar-size * 2;
+    }
 
-  p {
-    color: $color-text-light;
-    margin-top: $layout-padding;
-  }
+    div {
+      margin-left: $layout-margin;
 
-  h2 {
-    margin: $layout-padding 0 (-$layout-padding / 2) 0;
+      p {
+        color: $color-text-light;
+        margin: $layout-padding 0 0;
+      }
+    }
   }
 
   section {
@@ -31,12 +32,7 @@ main.profile {
     max-width: $column-max-width;
 
     a {
-      background: $color-accent;
-      border-radius: $border-radius;
-      color: $color-background;
-      font-size: $text-size-regular;
       margin: $layout-padding;
-      padding: $layout-padding * 3/4;
     }
   }
 }

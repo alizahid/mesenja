@@ -1,17 +1,17 @@
 import React, { FunctionComponent } from 'react'
-import moment from 'moment'
+import { Link } from 'react-router-dom'
 import { InView } from 'react-intersection-observer'
-import { random } from 'lodash'
+import { get, random } from 'lodash'
+import moment from 'moment'
 
 import { Post as PostI } from '../../store/models/posts'
 
-import { useActions } from '../../store'
+import { useActions, useStore } from '../../store'
 
 import { formatter } from '../../lib'
 
 import Attachment from '../attachment'
 import Avatar from '../avatar'
-import UserPreview from '../user-preview'
 
 import users from '../../store/fixtures/users'
 
@@ -26,6 +26,8 @@ const [ali] = users
 const Post: FunctionComponent<Props> = ({
   post: { attachments, body, created, id, likes, user }
 }) => {
+  const team = useStore(state => state.nav.team)
+
   const markAsRead = useActions(actions => actions.posts.markAsRead)
   const toggleLike = useActions(actions => actions.posts.toggleLike)
 
@@ -46,10 +48,10 @@ const Post: FunctionComponent<Props> = ({
       triggerOnce
     >
       <header>
-        <UserPreview user={user}>
+        <Link to={`/teams/${get(team, 'id')}/users/${user.id}`}>
           <Avatar data={user} />
           <h4>{user.name}</h4>
-        </UserPreview>
+        </Link>
         <aside>{moment(created).fromNow(true)}</aside>
       </header>
       <div className="body">{formatter(body)}</div>

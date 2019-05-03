@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import { Notification as NotificationI } from '../../store/models/notifications'
 
-import { Avatar, UserPreview } from '../../components'
+import { Avatar } from '../../components'
 import { useActions, useStore } from '../../store'
 
 import './index.scss'
@@ -21,7 +21,7 @@ const NotificationBody: FunctionComponent<Props> = ({
     case 'tag':
       return (
         <p>
-          <UserPreview user={user}>{user.name}</UserPreview>
+          <Link to={`/teams/${team.id}/users/${user.id}`}>{user.name}</Link>
           <span>&#160;tagged you in a&#160;</span>
           <Link to={`/teams/${team.id}/posts`}>post</Link>.
         </p>
@@ -33,13 +33,12 @@ const NotificationBody: FunctionComponent<Props> = ({
 }
 
 const Notifications: FunctionComponent = () => {
-  const markAsRead = useActions(state => state.notifications.markAsRead)
-
-  const { team } = useStore(state => state.nav)
-
+  const team = useStore(state => state.nav.team)
   const notifications = useStore(
     state => state.notifications.notifications
   ).filter(({ team: { id } }) => id === get(team, 'id'))
+
+  const markAsRead = useActions(state => state.notifications.markAsRead)
 
   return (
     <main className="notifications">
@@ -50,9 +49,9 @@ const Notifications: FunctionComponent = () => {
           key={index}
           onClick={() => markAsRead(notification.id)}
         >
-          <UserPreview user={notification.user}>
+          <Link to={`/teams/${get(team, 'id')}/users/${notification.user.id}`}>
             <Avatar data={notification.user} />
-          </UserPreview>
+          </Link>
           <NotificationBody notification={notification} />
           <aside>{moment(notification.created).fromNow(true)}</aside>
         </article>

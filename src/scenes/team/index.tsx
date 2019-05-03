@@ -7,6 +7,7 @@ import Feed from '../feed'
 import Members from '../members'
 import Notifications from '../notifications'
 import Posts from '../posts'
+import User from '../user'
 
 import './index.scss'
 
@@ -29,6 +30,7 @@ const Team: FunctionComponent<RouteComponentProps<Props>> = ({ match }) => {
       <Route path={`${match.path}/posts`} component={Posts} />
       <Route path={`${match.path}/members`} component={Members} />
       <Route path={`${match.path}/notifications`} component={Notifications} />
+      <Route path={`${match.path}/users/:id`} component={User} />
     </>
   )
 }
