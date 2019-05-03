@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
-import { get } from 'lodash'
 
-import { Avatar, Error, Post } from '../../components'
+import { Avatar, Error } from '../../components'
 import { useStore } from '../../store'
 
 import './index.scss'

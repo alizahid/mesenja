@@ -30,20 +30,11 @@ article.post {
     }
   }
 
-  .body {
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-size: $text-size-regular;
-      line-height: $text-line-height;
-    }
-  }
-
   footer {
     display: flex;
     margin: 0 (-$layout-padding) (-$layout-padding);
 
+    a,
     span {
       align-items: center;
       color: $color-text;

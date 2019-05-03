@@ -54,7 +54,7 @@ const Post: FunctionComponent<Props> = ({
         </Link>
         <aside>{moment(created).fromNow(true)}</aside>
       </header>
-      <div className="body">{formatter(body)}</div>
+      <div>{formatter(body)}</div>
       {attachments.length > 0 && (
         <div className="attachments">
           {attachments.map((attachment, index) => (
@@ -74,7 +74,9 @@ const Post: FunctionComponent<Props> = ({
         >
           {likes.length}
         </span>
-        <span className="comments">{random(0, 10)}</span>
+        <Link className="comments" to={`/teams/${get(team, 'id')}/posts/${id}`}>
+          {random(0, 10)}
+        </Link>
       </footer>
     </InView>
   )
