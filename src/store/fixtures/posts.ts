@@ -65,8 +65,8 @@ const fixtures: Post[] = [
     }),
     created: moment().subtract(45, 'minutes'),
     id: 'EShhJme9Bi',
-    seen: [],
     likes: [ali, sara],
+    seen: [],
     tagged: [],
     team: mesenja,
     user: danyal
@@ -94,8 +94,9 @@ const fixtures: Post[] = [
     }),
     created: moment().subtract(4, 'hours'),
     id: 'lz6OX_9EZw',
-    seen: [],
     likes: [janet, danyal, sara],
+    pinned: true,
+    seen: [],
     tagged: [],
     team: mesenja,
     user: ali

@@ -21,12 +21,14 @@ const Posts: FunctionComponent = () => {
   )
   const tagged = posts.filter(({ tagged }) => tagged.includes(ali))
   const mine = posts.filter(({ user: { id } }) => id === ali.id)
+  const pinned = posts.filter(({ pinned }) => pinned)
 
   return (
     <main className="posts">
-      <Column posts={all} title="Everything else" />
-      <Column posts={tagged} title="Tagged" />
-      <Column posts={mine} title="Mine" />
+      {all.length > 0 && <Column posts={all} title="Everything else" />}
+      {tagged.length > 0 && <Column posts={tagged} title="Tagged" />}
+      {mine.length > 0 && <Column posts={mine} title="Mine" />}
+      {pinned.length > 0 && <Column posts={pinned} title="Pinned" />}
     </main>
   )
 }

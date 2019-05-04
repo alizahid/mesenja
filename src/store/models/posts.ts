@@ -17,6 +17,7 @@ export interface Post {
   created: object
   id: string
   likes: User[]
+  pinned?: boolean
   seen: User[]
   tagged: User[]
   team: Team
