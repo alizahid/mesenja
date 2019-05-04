@@ -8,7 +8,7 @@ import users from './users'
 
 const [, second, , forth] = posts
 const [mesenja] = teams
-const [janet, sara] = users
+const [, janet, , sara] = users
 
 const fixtures: Notification[] = [
   {
