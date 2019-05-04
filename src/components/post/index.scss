@@ -3,6 +3,7 @@
 article.post {
   background: $color-highlight;
   padding: $layout-padding;
+  transition: background-color $transition linear;
 
   &:not(:first-child) {
     border-top: 1px solid $color-border;
