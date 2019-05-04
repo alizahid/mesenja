@@ -24,6 +24,7 @@ section.posts {
     font-size: $text-size-regular;
     font-weight: bold;
     padding: $layout-padding;
+    z-index: 1;
   }
 
   section {
