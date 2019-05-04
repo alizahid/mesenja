@@ -23,7 +23,7 @@ interface Props {
 const [ali] = users
 
 const Post: FunctionComponent<Props> = ({
-  post: { attachments, body, created, id, likes, user }
+  post: { attachments, body, created, id, likes, seen, user }
 }) => {
   const team = useStore(state => state.nav.team)
   const comments = useStore(state => state.comments.comments).filter(
@@ -33,13 +33,14 @@ const Post: FunctionComponent<Props> = ({
   const markAsRead = useActions(actions => actions.posts.markAsRead)
   const toggleLike = useActions(actions => actions.posts.toggleLike)
 
-  const liked = likes.includes(ali)
   const commented = comments.find(({ user }) => user.id === ali.id)
+  const liked = likes.includes(ali)
+  const viewed = seen.includes(ali)
 
   return (
     <InView
       as="article"
-      className="post"
+      className={`post ${viewed ? 'viewed' : ''}`}
       onChange={inView =>
         inView &&
         markAsRead({
@@ -47,7 +48,7 @@ const Post: FunctionComponent<Props> = ({
           user: ali
         })
       }
-      threshold={0.25}
+      threshold={0.4}
       triggerOnce
     >
       <header>

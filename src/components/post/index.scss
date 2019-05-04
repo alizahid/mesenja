@@ -1,10 +1,15 @@
 @import '../../assets/variables';
 
 article.post {
+  background: $color-highlight;
   padding: $layout-padding;
 
   &:not(:first-child) {
     border-top: 1px solid darken($color-background, 10%);
+  }
+
+  &.viewed {
+    background: $color-background;
   }
 
   header {
