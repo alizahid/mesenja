@@ -5,7 +5,7 @@ article.post {
   padding: $layout-padding;
 
   &:not(:first-child) {
-    border-top: 1px solid darken($color-background, 10%);
+    border-top: 1px solid $color-border;
   }
 
   &.viewed {

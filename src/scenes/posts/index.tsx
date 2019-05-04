@@ -29,10 +29,16 @@ const Posts: FunctionComponent = () => {
 
   return (
     <main className="posts">
-      {all.length > 0 && <Column posts={all} title="Everything else" />}
-      {tagged.length > 0 && <Column posts={tagged} title="Tagged" />}
-      {mine.length > 0 && <Column posts={mine} title="Mine" />}
-      {pinned.length > 0 && <Column posts={pinned} title="Pinned" />}
+      {all.length > 0 && (
+        <Column posts={all} title="Everything else" type="all" />
+      )}
+      {tagged.length > 0 && (
+        <Column posts={tagged} title="Tagged" type="tagged" />
+      )}
+      {mine.length > 0 && <Column posts={mine} title="Mine" type="mine" />}
+      {pinned.length > 0 && (
+        <Column posts={pinned} title="Pinned" type="pinned" />
+      )}
     </main>
   )
 }

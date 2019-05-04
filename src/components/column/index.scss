@@ -10,21 +10,57 @@ section.posts {
 
   &:not(:first-child) {
     h2 {
-      border-left: 1px solid darken($color-background, 15%);
+      border-left: 1px solid darken($color-border, 5%);
     }
 
     section {
-      border-left: 1px solid darken($color-background, 15%);
+      border-left: 1px solid darken($color-border, 5%);
     }
   }
 
   h2 {
+    align-items: center;
     background: $color-background;
     box-shadow: $color-shadow;
+    display: flex;
     font-size: $text-size-regular;
     font-weight: bold;
     padding: $layout-padding;
     z-index: 1;
+
+    &:after {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: $layout-margin;
+      content: '';
+      height: $layout-margin;
+      margin-left: auto;
+      width: $layout-margin;
+    }
+
+    &.all {
+      &:after {
+        background-image: url('../../assets/posts_all.svg');
+      }
+    }
+
+    &.tagged {
+      &:after {
+        background-image: url('../../assets/posts_tagged.svg');
+      }
+    }
+
+    &.mine {
+      &:after {
+        background-image: url('../../assets/posts_mine.svg');
+      }
+    }
+
+    &.pinned {
+      &:after {
+        background-image: url('../../assets/posts_pinned.svg');
+      }
+    }
   }
 
   section {

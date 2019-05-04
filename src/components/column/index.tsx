@@ -12,9 +12,10 @@ import './index.scss'
 interface Props {
   posts: PostI[]
   title: string
+  type: string
 }
 
-const Column: FunctionComponent<Props> = ({ posts, title }) => {
+const Column: FunctionComponent<Props> = ({ posts, title, type }) => {
   const column = useRef<HTMLInputElement>(null)
 
   const { scroll, team } = useStore(state => state.nav)
@@ -23,7 +24,7 @@ const Column: FunctionComponent<Props> = ({ posts, title }) => {
   useEffect(() => {
     if (column.current) {
       const current = scroll.find(
-        scroll => scroll.team.id === get(team, 'id') && scroll.column === title
+        scroll => scroll.team.id === get(team, 'id') && scroll.column === type
       )
 
       if (current) {
@@ -42,15 +43,15 @@ const Column: FunctionComponent<Props> = ({ posts, title }) => {
 
       updateScroll({
         team,
-        column: title,
+        column: type,
         position: get(column, 'current.scrollTop')
       })
     }
-  }, [title, scroll, team, updateScroll])
+  }, [type, scroll, team, updateScroll])
 
   return (
     <section className="posts">
-      <h2>{title}</h2>
+      <h2 className={type}>{title}</h2>
       <section ref={column}>
         {posts.map((post, index) => (
           <Post key={index} post={post} />
