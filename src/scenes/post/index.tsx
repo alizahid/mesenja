@@ -64,7 +64,6 @@ const PostView: FunctionComponent<RouteComponentProps<Props>> = ({
     setTimeout(() => {
       window.scrollTo({
         behavior: 'smooth',
-        left: 0,
         top: document.body.scrollHeight
       })
     })
