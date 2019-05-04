@@ -3,7 +3,7 @@
 article.post {
   background: $color-highlight;
   padding: $layout-padding;
-  transition: background-color $transition linear;
+  transition: background-color $transition linear #{$transition * 4};
 
   &:not(:first-child) {
     border-top: 1px solid $color-border;
@@ -38,7 +38,7 @@ article.post {
 
   footer {
     display: flex;
-    margin: 0 (-$layout-padding) (-$layout-padding);
+    margin: 0 #{-$layout-padding} #{-$layout-padding};
 
     a,
     span {

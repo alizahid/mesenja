@@ -38,7 +38,7 @@
           border-radius: 100%;
           content: '';
           height: $layout-padding * 2/3;
-          margin: (-$layout-padding) (-$layout-padding) 0 0;
+          margin: #{-$layout-padding} #{-$layout-padding} 0 0;
           width: $layout-padding * 2/3;
         }
       }
