@@ -1,4 +1,5 @@
 import moment from 'moment'
+import { random, range, sample, sampleSize } from 'lodash'
 // @ts-ignore
 import { loremIpsum as lorem } from 'lorem-ipsum'
 
@@ -102,5 +103,23 @@ const fixtures: Post[] = [
     user: ali
   }
 ]
+
+range(100).forEach(index => {
+  fixtures.push({
+    attachments: [],
+    body: lorem({
+      count: random(1, 3),
+      units: 'paragraph'
+    }),
+    created: moment().subtract(random(1, 60), 'minutes'),
+    id: `post-${index}`,
+    likes: sampleSize(users, random(1, users.length)),
+    pinned: !!random(0, 1),
+    seen: sampleSize(users, random(1, users.length)),
+    tagged: sampleSize(users, random(1, users.length)),
+    team: sample(teams) || mesenja,
+    user: sample(users) || ali
+  })
+})
 
 export default fixtures

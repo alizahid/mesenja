@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { get } from 'lodash'
+import { get, orderBy } from 'lodash'
 
 import { Column } from '../../components'
 import { useStore } from '../../store'
@@ -12,8 +12,12 @@ const [ali] = users
 
 const Posts: FunctionComponent = () => {
   const team = useStore(state => state.nav.team)
-  const posts = useStore(state => state.posts.posts).filter(
-    ({ team: { id } }) => id === get(team, 'id')
+  const posts = orderBy(
+    useStore(state => state.posts.posts).filter(
+      ({ team: { id } }) => id === get(team, 'id')
+    ),
+    'created',
+    'desc'
   )
 
   const all = posts.filter(
