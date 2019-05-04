@@ -17,25 +17,36 @@ interface Props {
 const Column: FunctionComponent<Props> = ({ posts, title }) => {
   const column = useRef<HTMLInputElement>(null)
 
-  const scroll = useStore(state => state.nav.scroll)
+  const { scroll, team } = useStore(state => state.nav)
   const updateScroll = useActions(actions => actions.nav.setScroll)
 
   useEffect(() => {
     if (column.current) {
-      const position = scroll[title]
+      const current = scroll.find(
+        scroll => scroll.team.id === get(team, 'id') && scroll.column === title
+      )
 
-      column.current.scrollTo({
-        top: position
-      })
+      if (current) {
+        const { position } = current
+
+        column.current.scrollTo({
+          top: position
+        })
+      }
     }
 
     return () => {
+      if (!team) {
+        return
+      }
+
       updateScroll({
+        team,
         column: title,
         position: get(column, 'current.scrollTop')
       })
     }
-  }, [title, scroll, updateScroll])
+  }, [title, scroll, team, updateScroll])
 
   return (
     <section className="posts">
