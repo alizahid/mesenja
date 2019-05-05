@@ -27,9 +27,11 @@ const ConversationFooter: FunctionComponent<Props> = ({ conversation }) => {
   const [body, setBody] = useState('')
 
   const onKeyDown = (event: KeyboardEvent) => {
-    const { key, metaKey } = event
+    const { key, shiftKey } = event
 
-    if (metaKey && key === 'Enter') {
+    if (!shiftKey && key === 'Enter') {
+      event.preventDefault()
+
       reply()
     }
   }
@@ -39,7 +41,7 @@ const ConversationFooter: FunctionComponent<Props> = ({ conversation }) => {
   }
 
   const reply = () => {
-    if (!body || !conversation) {
+    if (!body.trim() || !conversation) {
       return
     }
 
@@ -51,25 +53,17 @@ const ConversationFooter: FunctionComponent<Props> = ({ conversation }) => {
     })
 
     setBody('')
-
-    setTimeout(() => {
-      window.scrollTo({
-        behavior: 'smooth',
-        top: document.body.scrollHeight
-      })
-    })
   }
 
   return (
     <form className="conversation-footer" onSubmit={onSubmit}>
       <TextArea
-        maxRows={4}
+        maxRows={10}
         onChange={({ currentTarget: { value } }) => setBody(value)}
         onKeyDown={onKeyDown}
         placeholder="Say something nice"
         value={body}
       />
-      <button onClick={reply}>Reply</button>
     </form>
   )
 }
