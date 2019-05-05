@@ -4,6 +4,7 @@ import { get, orderBy } from 'lodash'
 import moment from 'moment'
 
 import { Avatar, Body, ConversationFooter, Error } from '../../components'
+import { groupMessages } from '../../lib'
 import { useStore } from '../../store'
 
 import users from '../../store/fixtures/users'
@@ -44,22 +45,26 @@ const Conversation: FunctionComponent<RouteComponentProps<Props>> = ({
     )
   }
 
+  const groups = groupMessages(messages)
+
   return (
     <section className="conversation">
       <section>
-        {messages.map((message, index) => (
-          <article key={index} className={message.user === ali ? 'mine' : ''}>
-            <Link to={`/teams/${get(team, 'id')}/users/${message.user.id}`}>
-              <Avatar data={message.user} />
+        {groups.map((group, index) => (
+          <article key={index} className={group.user === ali ? 'mine' : ''}>
+            <Link to={`/teams/${get(team, 'id')}/users/${group.user.id}`}>
+              <Avatar data={group.user} />
             </Link>
             <div>
               <header>
-                <Link to={`/teams/${get(team, 'id')}/users/${message.user.id}`}>
-                  <h4>{message.user.name}</h4>
+                <Link to={`/teams/${get(team, 'id')}/users/${group.user.id}`}>
+                  <h4>{group.user.name}</h4>
                 </Link>
-                <aside>{moment(message.created).fromNow(true)}</aside>
+                <aside>{moment(group.time).fromNow(true)}</aside>
               </header>
-              <Body body={message.body} />
+              {group.messages.map((message, index) => (
+                <Body key={index} body={message.body} />
+              ))}
             </div>
           </article>
         ))}
