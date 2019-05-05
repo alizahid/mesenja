@@ -20,7 +20,7 @@ const Body: FunctionComponent<Props> = ({ body }) => {
   const team = useStore(state => state.nav.team)
 
   return (
-    <div className={emojis(body) ? 'emojis' : ''}>
+    <div className={`body ${emojis(body) ? 'emojis' : ''}`}>
       {body
         .split('\n')
         .filter(Boolean)

@@ -1,5 +1,7 @@
-.emojis {
-  span {
-    font-size: 200%;
+.body {
+  &.emojis {
+    span {
+      font-size: 200%;
+    }
   }
 }
