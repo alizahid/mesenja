@@ -23,13 +23,9 @@ const nav: NavModel = {
   team: undefined,
   scroll: [],
 
-  setTeam: thunk(async (actions, payload, { getStoreState }) => {
+  setTeam: thunk((actions, payload, { getStoreState }) => {
     const {
       teams: { teams }
-    }: {
-      teams: {
-        teams: Team[]
-      }
     } = getStoreState()
 
     const team = teams.find(({ id }) => id === payload)

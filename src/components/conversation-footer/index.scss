@@ -1,0 +1,34 @@
+@import '../../assets/variables';
+
+form.conversation-footer {
+  display: flex;
+
+  button,
+  textarea {
+    appearance: none;
+    border: none;
+    font: inherit;
+  }
+
+  button {
+    background: $color-accent;
+    color: $color-background;
+    cursor: pointer;
+    padding: $layout-padding;
+    transition: $transition;
+
+    &:hover {
+      background: darken($color-accent, 5%);
+    }
+
+    &:active {
+      background: lighten($color-accent, 5%);
+    }
+  }
+
+  textarea {
+    border-top: 1px solid $color-border;
+    flex: 1;
+    padding: $layout-padding;
+  }
+}

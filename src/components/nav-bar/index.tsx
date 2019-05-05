@@ -36,6 +36,10 @@ const NavBar: FunctionComponent = () => {
               className={`posts ${posts ? 'unread' : ''}`}
               to={`/teams/${team.id}/posts`}
             />
+            <NavLink
+              className="conversations"
+              to={`/teams/${team.id}/conversations`}
+            />
             <NavLink className="members" to={`/teams/${team.id}/members`} />
             <NavLink
               className={`notifications ${notifications ? 'unread' : ''}`}

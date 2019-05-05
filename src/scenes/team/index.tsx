@@ -3,6 +3,7 @@ import { Route, RouteComponentProps } from 'react-router-dom'
 
 import { useActions } from '../../store'
 
+import Conversations from '../conversations'
 import Feed from '../feed'
 import Members from '../members'
 import Notifications from '../notifications'
@@ -32,6 +33,7 @@ const Team: FunctionComponent<RouteComponentProps<Props>> = ({ match }) => {
       <Route path={`${match.path}`} component={Feed} exact />
       <Route path={`${match.path}/posts`} component={Posts} exact />
       <Route path={`${match.path}/posts/:id`} component={Post} />
+      <Route path={`${match.path}/conversations`} component={Conversations} />
       <Route path={`${match.path}/members`} component={Members} />
       <Route path={`${match.path}/notifications`} component={Notifications} />
       <Route path={`${match.path}/users/:id`} component={User} />

@@ -1,3 +1,5 @@
+export { default as Conversation } from './conversation'
+export { default as Conversations } from './conversations'
 export { default as Feed } from './feed'
 export { default as Members } from './members'
 export { default as Notifications } from './notifications'

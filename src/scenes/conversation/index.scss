@@ -1,0 +1,47 @@
+@import '../../assets/variables';
+
+section.conversation {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  > section {
+    display: flex;
+    flex-direction: column-reverse;
+    flex: 1;
+    overflow: auto;
+
+    article {
+      align-self: flex-start;
+      display: flex;
+      padding: $layout-padding;
+
+      &:not(:last-child) {
+        padding-top: 0;
+      }
+
+      > div {
+        flex: 1;
+        margin-left: $layout-padding;
+
+        header {
+          align-items: center;
+          display: flex;
+
+          aside {
+            color: $color-text-light;
+            margin-left: $layout-padding;
+          }
+        }
+
+        div {
+          margin-top: $layout-padding / 2;
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
