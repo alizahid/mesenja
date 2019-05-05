@@ -10,7 +10,7 @@ const users: User[] = [
   {
     id: 'ali',
     joined: moment().subtract(4, 'hours'),
-    name: 'Ali Zahid',
+    name: 'Ali',
     email: 'ali@mesenja.com',
     roles: [
       {
@@ -29,7 +29,7 @@ const users: User[] = [
   {
     id: 'janet',
     joined: moment().subtract(3, 'hours'),
-    name: 'Janet Paul',
+    name: 'Janet',
     email: 'janet@mesenja.com',
     roles: [
       {
@@ -43,7 +43,7 @@ const users: User[] = [
   {
     id: 'danyal',
     joined: moment().subtract(3, 'hours'),
-    name: 'Danyal Zahid',
+    name: 'Danyal',
     email: 'danyal@mesenja.com',
     roles: [
       {
@@ -57,7 +57,7 @@ const users: User[] = [
   {
     id: 'sara',
     joined: moment().subtract(2, 'hours'),
-    name: 'Sara Zahid',
+    name: 'Sara',
     email: 'sara@mesenja.com',
     roles: [
       {
