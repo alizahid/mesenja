@@ -29,6 +29,7 @@ const Conversations: FunctionComponent = () => {
         {conversations.map((conversation, index) => (
           <NavLink
             key={index}
+            className={conversation.read ? 'read' : ''}
             to={`/teams/${get(team, 'id')}/conversations/${conversation.id}`}
           >
             <div>

@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
 import { get, orderBy } from 'lodash'
 import moment from 'moment'
 
 import { Avatar, Body, ConversationFooter, Error } from '../../components'
 import { groupMessages } from '../../lib'
-import { useStore } from '../../store'
+import { useActions, useStore } from '../../store'
 
 import users from '../../store/fixtures/users'
 
@@ -35,6 +35,12 @@ const Conversation: FunctionComponent<RouteComponentProps<Props>> = ({
     'created',
     'desc'
   )
+
+  const markAsRead = useActions(actions => actions.conversations.markAsRead)
+
+  useEffect(() => {
+    markAsRead(id)
+  }, [id, markAsRead])
 
   if (!conversation) {
     return (

@@ -11,6 +11,7 @@ export interface Conversation {
   id: string
   last?: Message
   name: string
+  read: boolean
   team: Team
   updated: object
   users: User[]
@@ -20,6 +21,7 @@ export interface ConversationsModel {
   conversations: Conversation[]
 
   listeners: Listen<ConversationsModel>
+  markAsRead: Action<ConversationsModel, string>
   update: Action<ConversationsModel, Message>
 }
 
@@ -34,7 +36,13 @@ const conversations: ConversationsModel = {
       })
     )
   }),
+  markAsRead: action((state, payload) => {
+    const index = state.conversations.findIndex(({ id }) => id === payload)
 
+    if (index >= 0) {
+      state.conversations[index].read = true
+    }
+  }),
   update: action((state, payload) => {
     const index = state.conversations.findIndex(
       conversation => conversation.id === payload.conversation.id

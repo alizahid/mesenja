@@ -8,9 +8,10 @@ main.conversations {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    width: $column-min-width;
+    min-width: $column-min-width;
 
     a {
+      background: $color-highlight;
       display: flex;
       padding: $layout-padding;
 
@@ -21,6 +22,10 @@ main.conversations {
       &:hover {
         background: $color-border;
         filter: none;
+      }
+
+      &.read {
+        background: $color-background;
       }
 
       &.active {

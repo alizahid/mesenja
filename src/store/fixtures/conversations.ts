@@ -49,6 +49,7 @@ range(1, 100).forEach(id => {
       .filter(({ id }) => id !== ali.id)
       .map(({ name }) => name)
       .join(', '),
+    read: !!random(0, 1),
     team: mesenja,
     updated: last ? last.created : created,
     users: members
