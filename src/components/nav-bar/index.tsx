@@ -19,10 +19,14 @@ const NavBar: FunctionComponent = () => {
     useStore(state => state.posts.posts).filter(
       ({ seen, team: { id } }) => id === get(team, 'id') && !seen.includes(ali)
     ).length > 0
-
   const notifications =
     useStore(state => state.notifications.notifications).filter(
       ({ read, team: { id } }) => id === get(team, 'id') && !read
+    ).length > 0
+  const conversations =
+    useStore(state => state.conversations.conversations).filter(
+      ({ read, users, team: { id } }) =>
+        id === get(team, 'id') && users.includes(ali) && !read
     ).length > 0
 
   return (
@@ -37,7 +41,7 @@ const NavBar: FunctionComponent = () => {
               to={`/teams/${team.id}/posts`}
             />
             <NavLink
-              className="conversations"
+              className={`conversations ${conversations ? 'unread' : ''}`}
               to={`/teams/${team.id}/conversations`}
             />
             <NavLink className="members" to={`/teams/${team.id}/members`} />
