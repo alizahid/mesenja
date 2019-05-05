@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import { Route, RouteComponentProps } from 'react-router-dom'
 
 import { useActions } from '../../store'
@@ -23,7 +23,9 @@ const Team: FunctionComponent<RouteComponentProps<Props>> = ({ match }) => {
 
   const setTeam = useActions(actions => actions.nav.setTeam)
 
-  setTeam(id)
+  useEffect(() => {
+    setTeam(id)
+  }, [id, setTeam])
 
   return (
     <>
