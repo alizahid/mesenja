@@ -1,10 +1,12 @@
 {
   "name": "mesenja",
   "private": true,
+  "main": "./electron.js",
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "dev": "concurrently 'cross-env BROWSER=none yarn start' 'wait-on http://localhost:3000 && electron .'",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start"
   },
   "dependencies": {
     "easy-peasy": "^2.1.6",
@@ -29,6 +31,7 @@
     "use-react-router": "^1.0.5"
   },
   "devDependencies": {
+    "@types/fs-extra": "^5.1.0",
     "@types/identicon.js": "^2.3.0",
     "@types/linkifyjs": "^2.1.1",
     "@types/lodash": "^4.14.123",
@@ -38,10 +41,17 @@
     "@types/react-router-dom": "^4.3.2",
     "@types/sha.js": "^2.4.0",
     "@types/shortid": "^0.0.29",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "electron": "^5.0.1",
+    "electron-builder": "^20.39.0",
+    "electron-is-dev": "^1.1.0",
+    "fs-extra": "^7.0.1",
     "husky": "^2.2.0",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0",
-    "typescript": "3.4.5"
+    "typescript": "3.4.5",
+    "wait-on": "^3.2.0"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -5,7 +5,6 @@ main.profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
 
   header {
     align-items: center;
@@ -23,16 +22,6 @@ main.profile {
         color: $color-text-light;
         margin: $layout-padding 0 0;
       }
-    }
-  }
-
-  section {
-    display: flex;
-    margin: $layout-margin 0;
-    max-width: $column-max-width;
-
-    a {
-      margin: $layout-padding;
     }
   }
 }

@@ -2,16 +2,7 @@
 
 .team-switcher {
   button {
-    appearance: none;
-    background: url('../../assets/mesenja.svg') center no-repeat;
-    background-size: 1.5em;
-    border: none;
-    cursor: pointer;
-    display: block;
-    font: inherit;
-    height: $nav-bar-size;
-    margin-top: $layout-margin;
-    width: $nav-bar-size;
+    background-image: url('../../assets/mesenja.svg');
 
     &:hover {
       animation: switcher 2s linear infinite;
@@ -19,61 +10,51 @@
   }
 
   div {
+    align-items: center;
     background: $color-modal;
     bottom: 0;
+    display: flex;
+    justify-content: center;
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
-  }
 
-  section {
-    background: $color-accent;
-    border-radius: $border-radius;
-    left: $nav-bar-size + $layout-padding;
-    position: fixed;
-    top: $layout-margin;
+    section {
+      background: $color-accent;
+      border-radius: $border-radius;
 
-    &:before {
-      border: solid transparent;
-      border-right-color: $color-accent;
-      border-width: $layout-padding / 2;
-      content: '';
-      height: 0;
-      pointer-events: none;
-      position: absolute;
-      right: 100%;
-      top: $layout-padding;
-      width: 0;
-    }
-
-    a {
-      align-items: center;
-      color: $color-background;
-      display: flex;
-      padding: $layout-padding;
-
-      &:first-child {
+      h2 {
+        background: darken($color-accent, 10%);
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
+        font-size: $text-size-regular;
+        padding: $layout-padding;
       }
 
-      &:last-child {
-        border-bottom-left-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-      }
+      a {
+        align-items: center;
+        color: $color-background;
+        display: flex;
+        padding: $layout-padding;
 
-      &:hover {
-        background: lighten($color-accent, 5%);
-        filter: brightness(1);
-      }
+        &:last-child {
+          border-bottom-left-radius: $border-radius;
+          border-bottom-right-radius: $border-radius;
+        }
 
-      &.current {
-        background: darken($color-accent, 5%);
-      }
+        &:hover {
+          background: lighten($color-accent, 5%);
+          filter: brightness(1);
+        }
 
-      img {
-        margin-right: $layout-padding;
+        &.current {
+          background: darken($color-accent, 5%);
+        }
+
+        img {
+          margin-right: $layout-padding;
+        }
       }
     }
   }

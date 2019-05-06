@@ -32,9 +32,9 @@ const NavBar: FunctionComponent = () => {
   return (
     <header className="header">
       <nav>
-        <TeamSwitcher />
         {team && (
           <>
+            <TeamSwitcher />
             <NavLink className="home" to={`/teams/${team.id}`} exact />
             <NavLink
               className={`posts ${posts ? 'unread' : ''}`}

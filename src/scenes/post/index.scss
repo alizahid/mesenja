@@ -2,9 +2,10 @@
 
 main.post-view {
   max-width: $column-min-width * 2;
-  padding: $layout-padding;
 
   .post {
+    padding: $layout-margin;
+
     header {
       img {
         height: $avatar-size * 2;

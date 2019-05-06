@@ -2,4 +2,8 @@
 
 main.posts {
   display: flex;
+
+  .post {
+    padding: $layout-padding;
+  }
 }

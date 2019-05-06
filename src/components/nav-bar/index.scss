@@ -8,6 +8,7 @@
   height: 100vh;
   position: fixed;
   z-index: 20;
+  -webkit-app-region: drag;
 
   nav {
     display: flex;
@@ -17,10 +18,17 @@
       margin-top: auto;
     }
 
-    > a {
+    > a,
+    button {
+      appearance: none;
+      background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;
       background-size: 1.5em;
+      border: none;
+      cursor: pointer;
+      display: block;
+      font: inherit;
       height: $nav-bar-size;
       width: $nav-bar-size;
 

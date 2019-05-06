@@ -2,7 +2,6 @@
 
 article.post {
   background: $color-highlight;
-  padding: $layout-padding;
   transition: background-color $transition linear #{$transition * 4};
 
   &:not(:first-child) {

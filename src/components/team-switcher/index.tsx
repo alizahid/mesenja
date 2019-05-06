@@ -37,6 +37,7 @@ const TeamSwitcher: FunctionComponent = () => {
       {visible && (
         <div onClick={() => setVisible(false)}>
           <section>
+            <h2>Switch teams</h2>
             {teams.map((team, index) => (
               <NavLink
                 key={index}
