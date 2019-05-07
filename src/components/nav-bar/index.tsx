@@ -34,7 +34,6 @@ const NavBar: FunctionComponent = () => {
       <nav>
         {team && (
           <>
-            <TeamSwitcher />
             <NavLink className="home" to={`/teams/${team.id}`} exact />
             <NavLink
               className={`posts ${posts ? 'unread' : ''}`}
@@ -53,6 +52,7 @@ const NavBar: FunctionComponent = () => {
         )}
       </nav>
       <nav>
+        <TeamSwitcher />
         <NavLink className="profile" to="/profile" />
         <NavLink className="logout" to="/logout" />
       </nav>
