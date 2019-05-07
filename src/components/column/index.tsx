@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react'
 import { get } from 'lodash'
+import List from 'react-list'
 
 import { Post as PostI } from '../../store/models/posts'
 
@@ -53,9 +54,10 @@ const Column: FunctionComponent<Props> = ({ posts, title, type }) => {
     <section className="posts">
       <h2 className={type}>{title}</h2>
       <section ref={column}>
-        {posts.map((post, index) => (
-          <Post key={index} post={post} />
-        ))}
+        <List
+          itemRenderer={index => <Post key={index} post={posts[index]} />}
+          length={posts.length}
+        />
       </section>
     </section>
   )
