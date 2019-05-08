@@ -15,7 +15,7 @@ const [ali] = users
 export const conversations: Conversation[] = []
 export const messages: Message[] = []
 
-range(1, 100).forEach(id => {
+range(1, 10).forEach(id => {
   const last: Message | undefined = orderBy(messages, 'created', 'desc').find(
     ({ conversation }) => conversation.id === String(id)
   )
@@ -56,7 +56,7 @@ range(1, 100).forEach(id => {
   })
 })
 
-range(0, 1000).forEach(() => {
+range(0, 100).forEach(() => {
   const [first] = conversations
 
   const conversation = sample(conversations) || first
