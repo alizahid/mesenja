@@ -9,6 +9,7 @@
     "start": "react-scripts start"
   },
   "dependencies": {
+    "clsx": "^1.0.4",
     "easy-peasy": "^2.1.6",
     "identicon.js": "^2.3.3",
     "is-only-emojis": "^1.0.1",

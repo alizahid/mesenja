@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import useRouter from 'use-react-router'
+import clsx from 'clsx'
 
 import { Team } from '../../store/models/teams'
 
@@ -41,7 +42,7 @@ const TeamSwitcher: FunctionComponent = () => {
             {teams.map((team, index) => (
               <NavLink
                 key={index}
-                className={team === current ? 'current' : ''}
+                className={clsx(team === current && 'current')}
                 to={buildPath(team, current, pathname)}
               >
                 <Avatar data={team} />

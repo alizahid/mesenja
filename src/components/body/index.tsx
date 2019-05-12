@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { get } from 'lodash'
 import Linkify from 'linkifyjs/react'
 import replace from 'react-string-replace'
+import clsx from 'clsx'
 // @ts-ignore
 import emojis from 'is-only-emojis'
 
@@ -20,7 +21,7 @@ const Body: FunctionComponent<Props> = ({ body }) => {
   const team = useStore(state => state.nav.team)
 
   return (
-    <div className={`body ${emojis(body) ? 'emojis' : ''}`}>
+    <div className={clsx('body', emojis(body) && 'emojis')}>
       {body
         .split('\n')
         .filter(Boolean)

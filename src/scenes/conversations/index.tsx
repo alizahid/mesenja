@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { NavLink, Route } from 'react-router-dom'
 import { get, orderBy } from 'lodash'
+import clsx from 'clsx'
 import moment from 'moment'
 
 import { useStore } from '../../store'
@@ -29,7 +30,7 @@ const Conversations: FunctionComponent = () => {
         {conversations.map((conversation, index) => (
           <NavLink
             key={index}
-            className={conversation.read ? 'read' : ''}
+            className={clsx(conversation.read && 'read')}
             to={`/teams/${get(team, 'id')}/conversations/${conversation.id}`}
           >
             <div>

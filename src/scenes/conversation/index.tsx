@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
 import { get, orderBy } from 'lodash'
+import clsx from 'clsx'
 import moment from 'moment'
 
 import { Avatar, Body, ConversationFooter, Error } from '../../components'
@@ -57,7 +58,7 @@ const Conversation: FunctionComponent<RouteComponentProps<Props>> = ({
     <section className="conversation">
       <section>
         {groups.map((group, index) => (
-          <article key={index} className={group.user === ali ? 'mine' : ''}>
+          <article key={index} className={clsx(group.user === ali && 'mine')}>
             <Link to={`/teams/${get(team, 'id')}/users/${group.user.id}`}>
               <Avatar data={group.user} />
             </Link>

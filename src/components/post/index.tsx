@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { InView } from 'react-intersection-observer'
 import { get } from 'lodash'
+import clsx from 'clsx'
 import moment from 'moment'
 
 import { Post as PostI } from '../../store/models/posts'
@@ -40,7 +41,7 @@ const Post: FunctionComponent<Props> = ({
   return (
     <InView
       as="article"
-      className={`post ${viewed ? 'viewed' : ''}`}
+      className={clsx('post', viewed && 'viewed')}
       onChange={inView =>
         inView &&
         markAsRead({
@@ -68,7 +69,7 @@ const Post: FunctionComponent<Props> = ({
       )}
       <footer>
         <span
-          className={`likes ${liked ? 'liked' : ''}`}
+          className={clsx('likes', liked && 'liked')}
           onClick={() =>
             toggleLike({
               post: id,
@@ -79,7 +80,7 @@ const Post: FunctionComponent<Props> = ({
           {likes.length}
         </span>
         <Link
-          className={`comments ${commented ? 'commented' : ''}`}
+          className={clsx('comments', commented && 'commented')}
           to={`/teams/${get(team, 'id')}/posts/${id}`}
         >
           {comments.length}

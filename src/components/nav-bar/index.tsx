@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { NavLink } from 'react-router-dom'
 import { get } from 'lodash'
+import clsx from 'clsx'
 
 import { useStore } from '../../store'
 
@@ -36,16 +37,16 @@ const NavBar: FunctionComponent = () => {
           <>
             <NavLink className="home" to={`/teams/${team.id}`} exact />
             <NavLink
-              className={`posts ${posts ? 'unread' : ''}`}
+              className={clsx('posts', posts && 'unread')}
               to={`/teams/${team.id}/posts`}
             />
             <NavLink
-              className={`conversations ${conversations ? 'unread' : ''}`}
+              className={clsx('conversations', conversations && 'unread')}
               to={`/teams/${team.id}/conversations`}
             />
             <NavLink className="members" to={`/teams/${team.id}/members`} />
             <NavLink
-              className={`notifications ${notifications ? 'unread' : ''}`}
+              className={clsx('notifications', notifications && 'unread')}
               to={`/teams/${team.id}/notifications`}
             />
           </>
