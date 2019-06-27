@@ -1,6 +1,7 @@
 import fixtures from '../fixtures/teams'
 
 export interface Team {
+  created: any
   id: string
   name: string
 }

@@ -7,7 +7,7 @@ import { User } from './users'
 import fixtures from '../fixtures/notifications'
 
 export interface Notification {
-  created: object
+  created: any
   id: string
   read: boolean
   target: Post

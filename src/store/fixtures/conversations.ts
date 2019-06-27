@@ -1,7 +1,6 @@
+import chance from 'chance'
 import moment from 'moment'
 import { orderBy, random, range, sample, sampleSize } from 'lodash'
-// @ts-ignore
-import { loremIpsum as lorem } from 'lorem-ipsum'
 
 import { Conversation } from '../models/conversations'
 import { Message } from '../models/messages'
@@ -9,20 +8,15 @@ import { Message } from '../models/messages'
 import teams from './teams'
 import users from './users'
 
-const [mesenja] = teams
 const [ali] = users
 
 export const conversations: Conversation[] = []
 export const messages: Message[] = []
 
-range(1, 10).forEach(id => {
-  const last: Message | undefined = orderBy(messages, 'created', 'desc').find(
-    ({ conversation }) => conversation.id === String(id)
-  )
-
+range(1000).forEach(() => {
   const created = moment().subtract(random(1, 60), 'minutes')
 
-  const members = sampleSize(users, random(2, users.length))
+  const members = sampleSize(users, random(2, 5))
 
   if (
     conversations.find(({ users }) => {
@@ -41,30 +35,38 @@ range(1, 10).forEach(id => {
     return
   }
 
-  conversations.push({
+  const conversation: Conversation = {
     created,
-    last,
-    id: String(id),
+    id: chance().guid(),
     name: members
       .filter(({ id }) => id !== ali.id)
       .map(({ name }) => name)
       .join(', '),
-    read: !!random(0, 1),
-    team: mesenja,
-    updated: last ? last.created : created,
+    read: chance().bool(),
+    team: sample(teams) || teams[0],
+    updated: created,
     users: members
-  })
+  }
+
+  const last = orderBy(messages, 'created', 'desc').find(
+    ({ conversation: { id } }) => id === conversation.id
+  )
+
+  if (last) {
+    conversation.last = last
+    conversation.updated = moment(last.created)
+  }
+
+  conversations.push(conversation)
 })
 
-range(0, 100).forEach(() => {
-  const [first] = conversations
-
-  const conversation = sample(conversations) || first
+range(100000).forEach(() => {
+  const conversation = sample(conversations) || conversations[0]
 
   messages.push({
     conversation,
-    body: lorem(),
-    created: moment().subtract(random(1, 60), 'minutes'),
+    body: chance().sentence(),
+    created: moment(conversation.created).add(random(1, 60), 'minutes'),
     user: sample(conversation.users) || ali
   })
 })

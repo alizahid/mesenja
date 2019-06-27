@@ -1,50 +1,33 @@
 import moment from 'moment'
+import { random } from 'lodash'
 
 import { Feed } from '../models/feed'
 
 import teams from './teams'
 import users from './users'
 
-const [mesenja, designplox] = teams
-const [ali, janet, danyal, sara] = users
+const [ali] = users
 
-const fixtures: Feed[] = [
-  {
-    created: moment().subtract(1, 'hours'),
-    team: designplox,
+const fixtures: Feed[] = []
+
+teams.forEach(team => {
+  fixtures.push({
+    team,
+    created: team.created,
     type: 'team_created',
     user: ali
-  },
-  {
-    created: moment().subtract(2, 'hours'),
-    team: mesenja,
-    type: 'user_joined',
-    user: sara
-  },
-  {
-    created: moment().subtract(3, 'hours'),
-    team: mesenja,
-    type: 'user_joined',
-    user: danyal
-  },
-  {
-    created: moment().subtract(3, 'hours'),
-    team: mesenja,
-    type: 'user_joined',
-    user: janet
-  },
-  {
-    created: moment().subtract(4, 'hours'),
-    team: mesenja,
-    type: 'user_joined',
-    user: ali
-  },
-  {
-    created: moment().subtract(4, 'hours'),
-    team: mesenja,
-    type: 'team_created',
-    user: ali
-  }
-]
+  })
+})
+
+users.forEach(user => {
+  user.teams.forEach(team => {
+    fixtures.push({
+      team,
+      user,
+      created: moment(team.created).add(random(1, 360), 'minutes'),
+      type: 'user_joined'
+    })
+  })
+})
 
 export default fixtures

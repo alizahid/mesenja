@@ -14,7 +14,7 @@ export interface Attachment {
 export interface Post {
   attachments: Attachment[]
   body: string
-  created: object
+  created: any
   id: string
   likes: User[]
   pinned?: boolean

@@ -7,7 +7,7 @@ import fixtures from '../fixtures/comments'
 
 export interface Comment {
   body: string
-  created: object
+  created: any
   post: Post
   user: User
 }

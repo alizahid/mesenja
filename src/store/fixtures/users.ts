@@ -1,73 +1,41 @@
+import chance from 'chance'
 import moment from 'moment'
+import { random, range, sampleSize } from 'lodash'
 
 import { User } from '../models/users'
 
 import teams from './teams'
 
-const [mesenja, designplox] = teams
-
-const users: User[] = [
+const fixtures: User[] = [
   {
-    id: 'ali',
-    joined: moment().subtract(4, 'hours'),
-    name: 'Ali',
+    teams,
+    id: chance().guid(),
+    joined: moment().subtract(random(1, 100), 'hours'),
+    name: 'Ali Zahid',
     email: 'ali@mesenja.com',
-    roles: [
-      {
-        public: true,
-        role: 'owner',
-        team: mesenja
-      },
-      {
-        public: true,
-        role: 'owner',
-        team: designplox
-      }
-    ],
-    teams: [mesenja, designplox]
-  },
-  {
-    id: 'janet',
-    joined: moment().subtract(3, 'hours'),
-    name: 'Janet',
-    email: 'janet@mesenja.com',
-    roles: [
-      {
-        public: true,
-        role: 'member',
-        team: mesenja
-      }
-    ],
-    teams: [mesenja]
-  },
-  {
-    id: 'danyal',
-    joined: moment().subtract(3, 'hours'),
-    name: 'Danyal',
-    email: 'danyal@mesenja.com',
-    roles: [
-      {
-        public: true,
-        role: 'member',
-        team: mesenja
-      }
-    ],
-    teams: [mesenja]
-  },
-  {
-    id: 'sara',
-    joined: moment().subtract(2, 'hours'),
-    name: 'Sara',
-    email: 'sara@mesenja.com',
-    roles: [
-      {
-        public: true,
-        role: 'member',
-        team: mesenja
-      }
-    ],
-    teams: [mesenja]
+    roles: teams.map(team => ({
+      team,
+      public: true,
+      role: 'owner'
+    }))
   }
 ]
 
-export default users
+range(100).forEach(() => {
+  const memberships = sampleSize(teams, 5) || teams
+
+  fixtures.push({
+    id: chance().guid(),
+    joined: moment().subtract(random(1, 100), 'hours'),
+    name: chance().name(),
+    email: chance().email(),
+    roles: memberships.map(team => ({
+      team,
+      public: true,
+      role: 'member'
+    })),
+    teams: memberships
+  })
+})
+
+export default fixtures

@@ -7,13 +7,13 @@ import { User } from './users'
 import { conversations as fixtures } from '../fixtures/conversations'
 
 export interface Conversation {
-  created: object
+  created: any
   id: string
   last?: Message
   name: string
   read: boolean
   team: Team
-  updated: object
+  updated: any
   users: User[]
 }
 

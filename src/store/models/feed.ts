@@ -4,7 +4,7 @@ import { User } from './users'
 import fixtures from '../fixtures/feed'
 
 export interface Feed {
-  created: object
+  created: any
   team: Team
   type: string
   user: User

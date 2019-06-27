@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
-import { get } from 'lodash'
+import { get, sortBy } from 'lodash'
 
 import { Team } from '../../store/models/teams'
 import { User } from '../../store/models/users'
@@ -20,8 +20,12 @@ const getRole = (user: User, team: undefined | Team) => {
 
 const Members: FunctionComponent = () => {
   const team = useStore(state => state.nav.team)
-  const users = useStore(state => state.users.users).filter(
-    ({ teams }) => team && teams.includes(team)
+  const users = sortBy(
+    useStore(state => state.users.users).filter(
+      ({ teams }) => team && teams.includes(team)
+    ),
+    ['role', 'name'],
+    ['desc', 'asc']
   )
 
   return (

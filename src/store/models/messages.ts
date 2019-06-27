@@ -8,7 +8,7 @@ import { messages as fixtures } from '../fixtures/conversations'
 export interface Message {
   body: string
   conversation: Conversation
-  created: object
+  created: any
   user: User
 }
 
