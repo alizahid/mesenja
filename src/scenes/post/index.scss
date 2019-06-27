@@ -1,7 +1,7 @@
 @import '../../assets/variables';
 
 main.post-view {
-  max-width: $column-min-width * 2;
+  max-width: $column-width * 2;
 
   .post {
     padding: $layout-margin;

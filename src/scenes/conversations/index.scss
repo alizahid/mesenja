@@ -8,7 +8,7 @@ main.conversations {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    min-width: $column-min-width;
+    width: $column-width;
 
     a {
       background: $color-highlight;
