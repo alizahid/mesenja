@@ -21,7 +21,7 @@ const fixtures: User[] = [
   }
 ]
 
-range(100).forEach(() => {
+range(50).forEach(() => {
   const memberships = sampleSize(teams, 5) || teams
 
   fixtures.push({

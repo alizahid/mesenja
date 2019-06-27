@@ -9,7 +9,7 @@ import users from './users'
 
 const fixtures: Comment[] = []
 
-range(10000).forEach(() => {
+range(100).forEach(() => {
   const post = sample(posts) || posts[0]
 
   fixtures.push({

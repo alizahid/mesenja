@@ -13,7 +13,7 @@ const [ali] = users
 export const conversations: Conversation[] = []
 export const messages: Message[] = []
 
-range(1000).forEach(() => {
+range(10).forEach(() => {
   const created = moment().subtract(random(1, 60), 'minutes')
 
   const members = sampleSize(users, random(2, 5))
@@ -60,7 +60,7 @@ range(1000).forEach(() => {
   conversations.push(conversation)
 })
 
-range(100000).forEach(() => {
+range(1000).forEach(() => {
   const conversation = sample(conversations) || conversations[0]
 
   messages.push({

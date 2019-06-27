@@ -9,7 +9,7 @@ import users from './users'
 
 const fixtures: Post[] = []
 
-range(1000).forEach(() => {
+range(100).forEach(() => {
   fixtures.push({
     attachments: [],
     body: chance().paragraph(),
