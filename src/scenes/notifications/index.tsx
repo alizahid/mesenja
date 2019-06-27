@@ -6,7 +6,7 @@ import moment from 'moment'
 import { Notification as NotificationI } from '../../store/models/notifications'
 
 import { Avatar } from '../../components'
-import { useActions, useStore } from '../../store'
+import { useStoreActions, useStoreState } from '../../store'
 
 import './index.scss'
 
@@ -33,12 +33,12 @@ const NotificationBody: FunctionComponent<Props> = ({
 }
 
 const Notifications: FunctionComponent = () => {
-  const team = useStore(state => state.nav.team)
-  const notifications = useStore(
+  const team = useStoreState(state => state.nav.team)
+  const notifications = useStoreState(
     state => state.notifications.notifications
   ).filter(({ team: { id } }) => id === get(team, 'id'))
 
-  const markAsRead = useActions(state => state.notifications.markAsRead)
+  const markAsRead = useStoreActions(state => state.notifications.markAsRead)
 
   return (
     <main className="notifications">

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { get, orderBy } from 'lodash'
 
 import { Column } from '../../components'
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import users from '../../store/fixtures/users'
 
@@ -11,9 +11,9 @@ import './index.scss'
 const [ali] = users
 
 const Posts: FunctionComponent = () => {
-  const team = useStore(state => state.nav.team)
+  const team = useStoreState(state => state.nav.team)
   const posts = orderBy(
-    useStore(state => state.posts.posts).filter(
+    useStoreState(state => state.posts.posts).filter(
       ({ team: { id } }) => id === get(team, 'id')
     ),
     'created',

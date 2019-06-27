@@ -9,7 +9,7 @@ import TextArea from 'react-autosize-textarea'
 import moment from 'moment'
 
 import { Comments, Error, Post } from '../../components'
-import { useActions, useStore } from '../../store'
+import { useStoreActions, useStoreState } from '../../store'
 
 import users from '../../store/fixtures/users'
 
@@ -26,12 +26,14 @@ const PostView: FunctionComponent<RouteComponentProps<Props>> = ({
     params: { id }
   }
 }) => {
-  const post = useStore(state => state.posts.posts).find(post => post.id === id)
-  const comments = useStore(state => state.comments.comments).filter(
+  const post = useStoreState(state => state.posts.posts).find(
+    post => post.id === id
+  )
+  const comments = useStoreState(state => state.comments.comments).filter(
     ({ post }) => post.id === id
   )
 
-  const addComment = useActions(actions => actions.comments.addComment)
+  const addComment = useStoreActions(actions => actions.comments.addComment)
 
   const [body, setBody] = useState('')
 

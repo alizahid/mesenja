@@ -7,7 +7,7 @@ import moment from 'moment'
 
 import { Post as PostI } from '../../store/models/posts'
 
-import { useActions, useStore } from '../../store'
+import { useStoreActions, useStoreState } from '../../store'
 
 import Attachment from '../attachment'
 import Avatar from '../avatar'
@@ -26,13 +26,13 @@ const [ali] = users
 const Post: FunctionComponent<Props> = ({
   post: { attachments, body, created, id, likes, seen, user }
 }) => {
-  const team = useStore(state => state.nav.team)
-  const comments = useStore(state => state.comments.comments).filter(
+  const team = useStoreState(state => state.nav.team)
+  const comments = useStoreState(state => state.comments.comments).filter(
     ({ post }) => post.id === id
   )
 
-  const markAsRead = useActions(actions => actions.posts.markAsRead)
-  const toggleLike = useActions(actions => actions.posts.toggleLike)
+  const markAsRead = useStoreActions(actions => actions.posts.markAsRead)
+  const toggleLike = useStoreActions(actions => actions.posts.toggleLike)
 
   const commented = comments.find(({ user }) => user.id === ali.id)
   const liked = likes.includes(ali)

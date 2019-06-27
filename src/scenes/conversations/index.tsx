@@ -4,7 +4,7 @@ import { get, orderBy } from 'lodash'
 import clsx from 'clsx'
 import moment from 'moment'
 
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import Conversation from '../conversation'
 
@@ -15,9 +15,9 @@ import './index.scss'
 const [ali] = users
 
 const Conversations: FunctionComponent = () => {
-  const team = useStore(state => state.nav.team)
+  const team = useStoreState(state => state.nav.team)
   const conversations = orderBy(
-    useStore(state => state.conversations.conversations).filter(
+    useStoreState(state => state.conversations.conversations).filter(
       ({ users, team: { id } }) => id === get(team, 'id') && users.includes(ali)
     ),
     'updated',

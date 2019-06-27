@@ -2,8 +2,10 @@ import { createStore, createTypedHooks } from 'easy-peasy'
 
 import model, { StoreModel } from './models'
 
-const { useActions, useStore, useDispatch } = createTypedHooks<StoreModel>()
+const { useStoreActions, useStoreState, useDispatch } = createTypedHooks<
+  StoreModel
+>()
 
 const store = createStore(model)
 
-export { store, useActions, useDispatch, useStore }
+export { store, useStoreActions, useDispatch, useStoreState }

@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect } from 'react'
-import { Route, RouteComponentProps } from 'react-router-dom'
+import { Route, Switch, RouteComponentProps } from 'react-router-dom'
 
-import { useActions } from '../../store'
+import { useStoreActions } from '../../store'
 
 import Conversations from '../conversations'
 import Feed from '../feed'
@@ -22,14 +22,14 @@ const Team: FunctionComponent<RouteComponentProps<Props>> = ({ match }) => {
     params: { id }
   } = match
 
-  const setTeam = useActions(actions => actions.nav.setTeam)
+  const setTeam = useStoreActions(actions => actions.nav.setTeam)
 
   useEffect(() => {
     setTeam(id)
   }, [id, setTeam])
 
   return (
-    <>
+    <Switch>
       <Route path={`${match.path}`} component={Feed} exact />
       <Route path={`${match.path}/posts`} component={Posts} exact />
       <Route path={`${match.path}/posts/:id`} component={Post} />
@@ -37,7 +37,7 @@ const Team: FunctionComponent<RouteComponentProps<Props>> = ({ match }) => {
       <Route path={`${match.path}/members`} component={Members} />
       <Route path={`${match.path}/notifications`} component={Notifications} />
       <Route path={`${match.path}/users/:id`} component={User} />
-    </>
+    </Switch>
   )
 }
 

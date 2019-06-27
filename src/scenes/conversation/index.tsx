@@ -6,7 +6,7 @@ import moment from 'moment'
 
 import { Avatar, Body, ConversationFooter, Error } from '../../components'
 import { groupMessages } from '../../lib'
-import { useActions, useStore } from '../../store'
+import { useStoreActions, useStoreState } from '../../store'
 
 import users from '../../store/fixtures/users'
 
@@ -25,19 +25,21 @@ const Conversation: FunctionComponent<RouteComponentProps<Props>> = ({
     params: { id }
   } = match
 
-  const team = useStore(state => state.nav.team)
-  const conversation = useStore(
+  const team = useStoreState(state => state.nav.team)
+  const conversation = useStoreState(
     state => state.conversations.conversations
   ).find(conversation => conversation.id === id)
   const messages = orderBy(
-    useStore(state => state.messages.messages).filter(
+    useStoreState(state => state.messages.messages).filter(
       ({ conversation }) => conversation.id === id
     ),
     'created',
     'desc'
   )
 
-  const markAsRead = useActions(actions => actions.conversations.markAsRead)
+  const markAsRead = useStoreActions(
+    actions => actions.conversations.markAsRead
+  )
 
   useEffect(() => {
     markAsRead(id)

@@ -9,7 +9,7 @@ import moment from 'moment'
 
 import { Conversation } from '../../store/models/conversations'
 
-import { useActions } from '../../store'
+import { useStoreActions } from '../../store'
 
 import users from '../../store/fixtures/users'
 
@@ -22,7 +22,7 @@ interface Props {
 }
 
 const ConversationFooter: FunctionComponent<Props> = ({ conversation }) => {
-  const send = useActions(actions => actions.messages.send)
+  const send = useStoreActions(actions => actions.messages.send)
 
   const [body, setBody] = useState('')
 

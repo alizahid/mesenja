@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { get } from 'lodash'
 import clsx from 'clsx'
 
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import TeamSwitcher from '../team-switcher'
 
@@ -14,18 +14,18 @@ import './index.scss'
 const [ali] = users
 
 const NavBar: FunctionComponent = () => {
-  const team = useStore(state => state.nav.team)
+  const team = useStoreState(state => state.nav.team)
 
   const posts =
-    useStore(state => state.posts.posts).filter(
+    useStoreState(state => state.posts.posts).filter(
       ({ seen, team: { id } }) => id === get(team, 'id') && !seen.includes(ali)
     ).length > 0
   const notifications =
-    useStore(state => state.notifications.notifications).filter(
+    useStoreState(state => state.notifications.notifications).filter(
       ({ read, team: { id } }) => id === get(team, 'id') && !read
     ).length > 0
   const conversations =
-    useStore(state => state.conversations.conversations).filter(
+    useStoreState(state => state.conversations.conversations).filter(
       ({ read, users, team: { id } }) =>
         id === get(team, 'id') && users.includes(ali) && !read
     ).length > 0

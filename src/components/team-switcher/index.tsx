@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import { Team } from '../../store/models/teams'
 
 import { Avatar } from '../../components'
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import users from '../../store/fixtures/users'
 
@@ -23,7 +23,7 @@ const buildPath = (team: Team, current: undefined | Team, path: string) => {
 }
 
 const TeamSwitcher: FunctionComponent = () => {
-  const current = useStore(state => state.nav.team)
+  const current = useStoreState(state => state.nav.team)
   const { teams } = ali
 
   const [visible, setVisible] = useState(false)

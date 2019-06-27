@@ -7,7 +7,7 @@ import clsx from 'clsx'
 // @ts-ignore
 import emojis from 'is-only-emojis'
 
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import users from '../../store/fixtures/users'
 
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const Body: FunctionComponent<Props> = ({ body }) => {
-  const team = useStore(state => state.nav.team)
+  const team = useStoreState(state => state.nav.team)
 
   return (
     <div className={clsx('body', emojis(body) && 'emojis')}>

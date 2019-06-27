@@ -3,7 +3,7 @@ import { get } from 'lodash'
 
 import { Post as PostI } from '../../store/models/posts'
 
-import { useActions, useStore } from '../../store'
+import { useStoreActions, useStoreState } from '../../store'
 
 import Post from '../post'
 
@@ -18,8 +18,8 @@ interface Props {
 const Column: FunctionComponent<Props> = ({ posts, title, type }) => {
   const column = useRef<HTMLInputElement>(null)
 
-  const { scroll, team } = useStore(state => state.nav)
-  const updateScroll = useActions(actions => actions.nav.setScroll)
+  const { scroll, team } = useStoreState(state => state.nav)
+  const updateScroll = useStoreActions(actions => actions.nav.setScroll)
 
   useEffect(() => {
     if (column.current) {

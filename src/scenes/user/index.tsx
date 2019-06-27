@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 
 import { Avatar, Error } from '../../components'
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import './index.scss'
 
@@ -15,7 +15,9 @@ const User: FunctionComponent<RouteComponentProps<Props>> = ({
     params: { id }
   }
 }) => {
-  const user = useStore(state => state.users.users).find(user => user.id === id)
+  const user = useStoreState(state => state.users.users).find(
+    user => user.id === id
+  )
 
   if (!user) {
     return <Error />

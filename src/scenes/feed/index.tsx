@@ -6,7 +6,7 @@ import moment from 'moment'
 import { Feed as FeedI } from '../../store/models/feed'
 
 import { Avatar } from '../../components'
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import './index.scss'
 
@@ -38,9 +38,9 @@ const FeedBody: FunctionComponent<Props> = ({ item: { team, type, user } }) => {
 }
 
 const Feed: FunctionComponent = () => {
-  const team = useStore(state => state.nav.team)
+  const team = useStoreState(state => state.nav.team)
   const feed = orderBy(
-    useStore(state => state.feed.feed).filter(
+    useStoreState(state => state.feed.feed).filter(
       ({ team: { id } }) => id === get(team, 'id')
     ),
     'created',

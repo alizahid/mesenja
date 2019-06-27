@@ -6,7 +6,7 @@ import { Team } from '../../store/models/teams'
 import { User } from '../../store/models/users'
 
 import { Avatar } from '../../components'
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import './index.scss'
 
@@ -19,9 +19,9 @@ const getRole = (user: User, team: undefined | Team) => {
 }
 
 const Members: FunctionComponent = () => {
-  const team = useStore(state => state.nav.team)
+  const team = useStoreState(state => state.nav.team)
   const users = sortBy(
-    useStore(state => state.users.users).filter(
+    useStoreState(state => state.users.users).filter(
       ({ teams }) => team && teams.includes(team)
     ),
     ['role', 'name'],

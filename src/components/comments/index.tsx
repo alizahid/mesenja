@@ -5,7 +5,7 @@ import { get, sortBy } from 'lodash'
 
 import { Comment } from '../../store/models/comments'
 
-import { useStore } from '../../store'
+import { useStoreState } from '../../store'
 
 import Avatar from '../avatar'
 import Body from '../body'
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Comments: FunctionComponent<Props> = ({ comments }) => {
-  const team = useStore(state => state.nav.team)
+  const team = useStoreState(state => state.nav.team)
 
   return (
     <section className="comments">
